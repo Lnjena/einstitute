@@ -2,26 +2,34 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.einstitute</groupId>
-    <artifactId>einstitute-root</artifactId>
+    <artifactId>components</artifactId>
     <version>1.0.0</version>
   </parent>
-  <groupId>com.einstitute.core</groupId>
+  <groupId>com.einstitute.components</groupId>
   <artifactId>einstitute-core</artifactId>
-  <packaging>pom</packaging>
-  <name>einstitute-core</name>
-  <description>Einstitute Core</description>
   
   <dependencies>
-  	<dependency>
+  	<!-- <dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-data-jpa</artifactId>
-	</dependency>
+	</dependency> -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-data-mongodb</artifactId>
 	</dependency>
-  </dependencies>
-  <modules>
-  	<module>einstitute-core-domain</module>
-  </modules>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-rest</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>6.8.13</version>
+	</dependency>
+  </dependencies> 
+  
 </project>
