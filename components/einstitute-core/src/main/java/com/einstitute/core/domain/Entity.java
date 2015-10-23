@@ -17,7 +17,7 @@ public class Entity {
 	
 	@Field("defaultRoles")
 	private List<String> defaultRoles;
-
+	
 	public String getEntityId() {
 		return entityId;
 	}
@@ -42,5 +42,8 @@ public class Entity {
 		this.defaultRoles = defaultRoles;
 	}
 	
+	public String getCustomVal() {
+		return "Hello: " + entityType;
+	}
 	
 }
