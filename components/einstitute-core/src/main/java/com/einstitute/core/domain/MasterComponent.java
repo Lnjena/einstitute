@@ -7,22 +7,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MasterComponent {
 	
 	@Id
-	private String uri;
+	private String _id;
 	
-	private String path;
+	private String uri;
 
-	public MasterComponent(String uri, String path) {
+	public MasterComponent(String _id, String uri) {
 		super();
+		this._id = _id;
 		this.uri = uri;
-		this.path = path;
+	}
+
+	public String get_id() {
+		return _id;
 	}
 
 	public String getUri() {
 		return uri;
 	}
-
-	public String getPath() {
-		return path;
-	}	
 	
 }

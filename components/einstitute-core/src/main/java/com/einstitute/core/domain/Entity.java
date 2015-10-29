@@ -1,49 +1,69 @@
 package com.einstitute.core.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="entity")
-public class Entity {
-	
+public class Entity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6048909041066151311L;
+
 	@Id
-	private String entityId;	
+	private String _id;	
 	
-	@Field("entType")
+	@Field("ent_type")
 	private String entityType;
 	
-	@Field("defaultRoles")
-	private List<String> defaultRoles;
+	@Field("org_code")
+	private String orgCode;
 	
-	public String getEntityId() {
-		return entityId;
+	@DBRef
+	private List<Entity> children;;
+	
+	@DBRef
+	private Entity parent;
+
+	public Entity(String _id, String entityType, String orgCode) {
+		super();
+		this._id = _id;
+		this.entityType = entityType;
+		this.orgCode = orgCode;
+	}
+	
+	
+	public String get_id() {
+		return _id;
 	}
 
-	public void setEntityId(String entityId) {
-		this.entityId = entityId;
-	}
+
 
 	public String getEntityType() {
 		return entityType;
 	}
 
-	public void setEntityType(String entityType) {
-		this.entityType = entityType;
+
+
+	public String getOrgCode() {
+		return orgCode;
 	}
 
-	public List<String> getDefaultRoles() {
-		return defaultRoles;
+
+
+	public EntityPermission getPermission() {
+		return permission;
 	}
 
-	public void setDefaultRoles(List<String> defaultRoles) {
-		this.defaultRoles = defaultRoles;
-	}
-	
-	public String getCustomVal() {
-		return "Hello: " + entityType;
-	}
-	
+
+
+	@Transient
+	private EntityPermission permission;
 }
