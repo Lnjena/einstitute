@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.bson.types.ObjectId;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.ConfigFileApplicationContextInitializer;
@@ -18,12 +19,17 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.Test;
 
+import com.einstitute.core.domain.schedule.Frequency;
+import com.einstitute.core.domain.schedule.FrequencyType;
+import com.einstitute.core.domain.schedule.Schedule;
+import com.einstitute.core.repository.ActivityRepository;
 import com.einstitute.core.repository.AttendanceRepository;
 import com.einstitute.core.repository.EntityGroupRepository;
 import com.einstitute.core.repository.EntityPermissionRepository;
 import com.einstitute.core.repository.EntityRepository;
 import com.einstitute.core.repository.MasterComponentsRepository;
 import com.einstitute.core.repository.OrganisationRepository;
+import com.einstitute.core.repository.ScheduleRepository;
 import com.einstitute.core.repository.config.RepositoryConfig;
 
 
@@ -54,6 +60,12 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 	
 	@Autowired
 	private EntityPermissionRepository entityPermissionRepository;
+	
+	@Autowired
+	private ScheduleRepository scheduleRepository;
+	
+	@Autowired
+	private ActivityRepository activityRepository;
 	
 	//@Test
 	public void test_createComponentDefn() {
@@ -197,7 +209,7 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		
 	}
 	
-	@Test
+	//@Test
 	public void test_createOrganisation() {
 		Organisation org = new Organisation("in.del.del.north.dps5657", null, new ArrayList<String>(), true);
 		organisationRepository.save(org);
@@ -223,6 +235,18 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		sleep();
 	}
 	
+	
+	@Test
+	public void test_createSchedule() {
+		Schedule every_n_days = new Schedule(new Frequency(FrequencyType.MonthsOfYear.JAN, FrequencyType.MonthsOfYear.FEB));
+		
+		//Activity activity = new Activity("Spring Fest", every_n_days);
+		List<String> groupIds = new ArrayList<String>();
+		groupIds.add("cls1_2015");
+		Activity activity2 = new Activity("in.del.del.north.dps5657.2015.cls1.S1001", groupIds, "Spring Fest", every_n_days, true, new ObjectId("56374c0f600195dec64c9a38"));
+		
+		activityRepository.save(activity2);
+	}
 	
 	//@Test
 	public void test_findGroupWithEntityRefs() {
