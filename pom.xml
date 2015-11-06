@@ -1,21 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.einstitute</groupId>
-  <artifactId>einstitute</artifactId>
-  <version>1.0.0</version>
-  <name>einstitute-root</name>
-  <packaging>pom</packaging>
-  
- <parent>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-parent</artifactId>
-	<version>1.2.7.RELEASE</version>
-</parent>
-	
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.einstitute</groupId>
+	<artifactId>einstitute</artifactId>
+	<version>1.0.0</version>
+	<name>einstitute-root</name>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.2.7.RELEASE</version>
+	</parent>
+
 	<properties>
 		<spring-boot.version>1.2.7.RELEASE</spring-boot.version>
 	</properties>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -33,12 +34,8 @@
 				<artifactId>spring-boot-starter-data-jpa</artifactId>
 				<version>${spring-boot.version}</version>
 			</dependency>
-			<!-- <dependency>
-			    <groupId>org.hsqldb</groupId>
-			    <artifactId>hsqldb</artifactId>
-			    <scope>runtime</scope>
-			    <version>${spring-boot.version}</version>
-			</dependency> -->
+			<!-- <dependency> <groupId>org.hsqldb</groupId> <artifactId>hsqldb</artifactId> 
+				<scope>runtime</scope> <version>${spring-boot.version}</version> </dependency> -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -68,15 +65,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
 				<version>${spring-boot.version}</version>
-			</dependency>		
+			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
 				<version>${spring-boot.version}</version>
 			</dependency>
-	</dependencies>
+		</dependencies>
 	</dependencyManagement>
-	
+
 	<modules>
 		<module>components</module>
 	</modules>

@@ -13,5 +13,6 @@
     
   <modules>
   	<module>einstitute-core</module>
+	<module>einstitute-web</module>
   </modules>
 </project>
