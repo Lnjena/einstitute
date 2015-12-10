@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import com.einstitute.core.domain.Activity;
 
 public interface ActivityRepository extends MongoRepository<Activity, ObjectId>{
-
+	
 }
