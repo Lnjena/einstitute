@@ -1,6 +1,7 @@
 package com.einstitute.core.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -18,21 +19,24 @@ public class Organisation implements Serializable {
 	@Id
 	private String _id;
 	
-	@Field("parent_org_code")
+	@Field("org_name")
+	private String name;
+	
+	@Field("org_parent_code")
 	private String parentOrgCode;
 	
-	@Field("branch_org_codes")
+	@Field("org_branch_codes")
 	private List<String> branchOrgCodes;
 	
 	@Field("is_active")
 	private boolean active;
 
 	public Organisation(String _id, String parentOrgCode,
-			List<String> branchOrgCodes, boolean active) {
+			boolean active) {
 		super();
 		this._id = _id;
 		this.parentOrgCode = parentOrgCode;
-		this.branchOrgCodes = branchOrgCodes;
+		this.branchOrgCodes = new ArrayList<String>();
 		this.active = active;
 	}
 }

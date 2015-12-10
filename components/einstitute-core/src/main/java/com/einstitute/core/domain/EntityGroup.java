@@ -66,5 +66,4 @@ public class EntityGroup {
 	public Date getGroupTerminationDate() {
 		return groupTerminationDate;
 	}
-	
 }
