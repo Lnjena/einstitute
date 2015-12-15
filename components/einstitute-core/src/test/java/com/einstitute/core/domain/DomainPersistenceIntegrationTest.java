@@ -325,7 +325,7 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		
 	}
 	
-	@Test
+	//@Test
 	public void test_createEntity() {
 		
 		Identity id = new Identity("F818480234", "Passport", "Fir Mid Sur", "Govt of India", new LocalDate(2006, 8, 16), new LocalDate(2016, 8, 16), "IN");

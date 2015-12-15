@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Admission - Student Details</title>
+		<link href="/einstitute/webjars/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+		<script src="https://code.angularjs.org/tools/system.js"></script>
+  		<script src="https://code.angularjs.org/tools/typescript.js"></script>
+  		<script src="https://code.angularjs.org/2.0.0-alpha.50/angular2.dev.js"></script>
+  		<!-- <script src="https://code.angularjs.org/2.0.0-alpha.44/angular2.dev.js"></script> -->
+	</head>
+	
+	<script>
+    	System.config({
+      		transpiler: 'typescript',
+      		typescriptOptions: { emitDecoratorMetadata: true }
+    	});
+    	System.import('./commonEntity.ts');
+	</script>
+	<body>
+		<common-entity-form></common-entity-form>	
+	</body>
+	
+</html>
