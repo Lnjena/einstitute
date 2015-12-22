@@ -231,11 +231,12 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 	
 	//@Test
 	public void test_createOrganisation() {
-		Organisation org = new Organisation("in.del.del.north.dps5657", null, true);
+		Organisation org = new Organisation("in.del.del.north.dps5657");
 		organisationRepository.save(org);
 		
 		//Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657");
-		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null, null, null);
+		//Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null, null, null);
+		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", "Ln", "Jena");
 		
 		entityRepository.save(ent);
 	}
@@ -332,8 +333,7 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		List<Identity> socialSecurityIds = new ArrayList<Identity>();
 		socialSecurityIds.add(id);
 		
-		EntityHeader entityHeader = new EntityHeader("First", "Sur", "Mid", socialSecurityIds);
-		Entity ent = new Entity("T103", "TEACHER", "in.del.del.north.dps.1001", entityHeader, null, null);
+		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", "Ln", "Jena");
 		
 		entityRepository.insert(ent);
 	}

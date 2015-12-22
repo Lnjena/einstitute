@@ -13,16 +13,24 @@ public class Contact implements Serializable {
 	
 	public enum Type {PHONE, MOBILE, EMAIL, FAX, FACE_BOOK, TWITTER};
 	
-	@Field("cont_type")
+	@Field
 	private Type type;
 	
-	@Field("cont_category")
-	private String category;
-	
-	@Field("cont_details")
+	@Field
 	private String details;
 	
-	@Field("cont_default")
+	@Field
 	private boolean defaultContact;
 
+	public Type getType() {
+		return type;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public boolean isDefaultContact() {
+		return defaultContact;
+	}
 }

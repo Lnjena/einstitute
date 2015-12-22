@@ -3,11 +3,16 @@ package com.einstitute.core.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 @Document(collection="entity")
 public class Entity implements Serializable {
@@ -17,58 +22,81 @@ public class Entity implements Serializable {
 	 */
 	private static final long serialVersionUID = 6048909041066151311L;
 
+	@NotNull
 	@Id
 	private String _id;	
 	
-	@Field("ent_type")
+	@NotNull
+	@Field
 	private String entityType;
 	
-	@Field("org_code")
-	private String orgCode;
+	@NotNull
+	@DBRef(lazy=true)
+	private Organisation organisation;
 	
-	@Field("ent_header")
+	@NotNull
+	@Field
 	private EntityHeader entityHeader;
 	
+	@NotNull
 	@DBRef(lazy=true)
-	private List<Entity> children;;
+	private List<Guarantor> guarantors;
 	
-	@DBRef(lazy=true)
-	private Entity parent;
+	@NotNull
+	@Field
+	private ContactDetails contactDetails;
 	
-	@DBRef(lazy=true)
-	private Entity guardians;
+	@NotNull
+	@Field
+	private ExtraPersonalDetails extraPersonalDetails;
 	
 	@DBRef(lazy=true)
 	private Wallet wallet;
 	
-	@Field("ent_addl_details")
-	private AdditionalDetails additionalDetails;
+	public Entity() {}
 
-		
-	public Entity(String _id, String entityType, 
-			String orgCode, EntityHeader entityHeader, 
-				Entity parent, AdditionalDetails additionalDetails) {
+	public Entity(String _id, String entityType, String orgCode, 
+			String firstName, String lastName) {
 		super();
 		this._id = _id;
 		this.entityType = entityType;
-		this.entityHeader = entityHeader;
-		this.parent = parent;
-		this.additionalDetails = additionalDetails;
+		this.organisation = new Organisation(orgCode);
+		this.entityHeader = new EntityHeader(firstName, lastName);
+	}
+	
+	public Entity(String _id) {
+		this._id = _id;
 	}
 
 	public String get_id() {
 		return _id;
 	}
 
-	public EntityPermission getPermission() {
-		return permission;
-	}
-
-
 	public String getEntityType() {
 		return entityType;
 	}
 
-	@Transient
-	private EntityPermission permission;
+	public Organisation getOrganisation() {
+		return organisation;
+	}
+
+	public EntityHeader getEntityHeader() {
+		return entityHeader;
+	}
+
+	public List<Guarantor> getGuarantors() {
+		return guarantors;
+	}
+
+	public ContactDetails getContactDetails() {
+		return contactDetails;
+	}
+
+	public ExtraPersonalDetails getExtraPersonalDetails() {
+		return extraPersonalDetails;
+	}
+
+	public Wallet getWallet() {
+		return wallet;
+	}
 }

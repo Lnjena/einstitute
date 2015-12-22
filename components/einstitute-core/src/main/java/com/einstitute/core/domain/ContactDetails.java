@@ -12,19 +12,25 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * @author 502400119
  *
  */
-public class AdditionalDetails implements Serializable {
+public class ContactDetails implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6280553745324006957L;
 	
-	@Field("addresses")
+	@Field
 	List<Address> addresses;
 
-	@Field("contacts")
+	@Field
 	private List<Contact> contacts;
-	
-	
 
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+	
 }

@@ -14,31 +14,31 @@ public class Address implements Serializable {
 	
 	public enum AddressType {HOME, RESIDENTIAL, BUSINESS, PERMANENT, RENTED, OFFICE, };
 	
-	@Field("addr_type")
+	@Field
 	private AddressType type;
 	
-	@Field("addr_line_1")
+	@Field
 	private String line1;
 	
-	@Field("addr_line_2")
+	@Field
 	private String line2;
 	
-	@Field("addr_line_3")
+	@Field
 	private String line3;
 	
-	@Field("addr_city")
+	@Field
 	private String city;
 	
-	@Field("addr_province")
+	@Field
 	private String province;
 	
-	@Field("addr_country")
+	@Field
 	private String countryCode;
 	
-	@Field("addr_post_code")
+	@Field
 	private String postCode;	
 	
-	@Field("addr_created_on")
+	@Field
 	private DateTime dateCreated;
 
 	public Address(AddressType type, String line1, String line2, String line3, String city,
@@ -55,4 +55,39 @@ public class Address implements Serializable {
 		this.dateCreated = new DateTime();
 	}
 
+	public AddressType getType() {
+		return type;
+	}
+
+	public String getLine1() {
+		return line1;
+	}
+
+	public String getLine2() {
+		return line2;
+	}
+
+	public String getLine3() {
+		return line3;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public String getPostCode() {
+		return postCode;
+	}
+
+	public DateTime getDateCreated() {
+		return dateCreated;
+	}
 }
