@@ -1,0 +1,14 @@
+<div class="container-fluid" style="background-color:lightgrey;">
+	<div class="row">
+		<div class="col-md-8" *ngIf="!user.authenticated">
+			<login-comp [user]="user"></login-comp>
+		</div>
+	</div>
+	<div class="row" style="background-color:lightgrey;">
+		<div class="col-md-8" *ngIf="user.authenticated">
+			<menu-comp></menu-comp>
+		</div>
+	</div>
+</div>
+
+

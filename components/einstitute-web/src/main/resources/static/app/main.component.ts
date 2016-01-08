@@ -1,8 +1,3 @@
-export class Entity {
-	id: string = "";
-	
-}
-
-export class EntityLabel extends Entity {
-
+export class BaseComponent<M> {
+	getModel<M>(): M;
 }

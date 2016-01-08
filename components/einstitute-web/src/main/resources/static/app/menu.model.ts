@@ -1,15 +1,20 @@
-export class Resources {
+export class Resource {
 	user: User;
 	menuItems: MenuItem[];
 	permissions: Permission[]
 }
 
-resources: Resources = {
-	user: {userId: "I1001", role="STUDENT"},
+resources: Resource = {
+	user: {
+			userId: "I1001", 
+			role="STUDENT"
+		},
 	menuItems: [
-		{ components: ["ViewProfile"], category: "Main" },	
-		{ components: ["ActivitiesList", "ActivitiesHistory"], category: "Activities" },
-		{ components: ["SearchLibrary", "LoanedArticles"], category: "Library" }
+		{ components: ["DashBoard", "Profile", "Locker", "Favorites"], category: "User" },	
+		{ components: ["DashBoard", "ManageActivities", "Calendar", "Favorites"], category: "Activities" },
+		{ components: ["DashBoard", "MakePayment", "Statements"], category: "Wallet" },
+		{ components: ["DashBoard", "ManageLibrary", "Favorites"], category: "Library" },
+		{ components: ["DashBoard", "ActivityReports", "Favorites"], category: "Resources" }
 	],
 	permissions: [
 		{

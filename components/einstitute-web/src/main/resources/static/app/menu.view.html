@@ -1,0 +1,12 @@
+<div class="col-md-4" style="background-color:lightgrey;">
+	<div *ngFor="#menuItem of resources.menuItems">
+		<div>{{menuItem.category}}</div>
+		<div *ngFor="#component of menuItem.components">	
+			<a [routerLink]="[component]">{{component}}</a>
+		</div>
+	</div>			
+</div>
+<div class="col-md-8" style="background-color:red;">
+	<router-outlet></router-outlet>
+</div>
+	
