@@ -1,0 +1,36 @@
+<div class="container" id="address_form">
+	<form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+      	<div class="form-group">
+        	<label for="type">Address Type</label>
+        	<input type="text" class="form-control" required [(ngModel)]="addressModel.type" value="HOME" ngControl="type" #name="ngForm" >
+      	</div>
+      	<div class="form-group">
+        	<label for="line1">Address Line1</label>
+        	<input type="text" class="form-control" required [(ngModel)]="addressModel.line1" ngControl="line1" #name="ngForm" >
+      	</div>
+      	<div class="form-group">
+        	<label for="lin2">Address Line2</label>
+        	<input type="text" class="form-control" [(ngModel)]="addressModel.line2" ngControl="line2" #name="ngForm" >
+      	</div>
+      	<div class="form-group">
+        	<label for="line3">Address Line3</label>
+        	<input type="text" class="form-control" [(ngModel)]="addressModel.line3" ngControl="line3"  #name="ngForm" >
+      	</div>
+      	<div class="form-group">
+        	<label for="city">City</label>
+        	<input type="text" class="form-control" [(ngModel)]="addressModel.city" ngControl="city" #name="ngForm" >
+      	</div>
+		<div class="form-group">
+        	<label for="state">State</label>
+        	<input type="text" class="form-control" [(ngModel)]="addressModel.province" ngControl="province" #name="ngForm" >
+      	</div>
+      	<div class="form-group">
+        	<label for="postCode">Postcode</label>
+        	<input type="text" class="form-control" [(ngModel)]="addressModel.postCode" ngControl="postCode" #name="ngForm" >
+      	</div>
+      	<div class="form-group">
+        	<label for="country">Country</label>
+        	<input type="text" class="form-control" [(ngModel)]="addressModel.countryCode" ngControl="countryCode" #name="ngForm" >
+      	</div>
+	</form>
+</div>
