@@ -21,6 +21,15 @@ public class Contact implements Serializable {
 	
 	@Field
 	private boolean defaultContact;
+	
+	public Contact(){
+	}
+	
+	public Contact(Type type, String details, boolean defaultContact) {
+		this.type = type;
+		this.details = details;
+		this.defaultContact = defaultContact;
+	}
 
 	public Type getType() {
 		return type;

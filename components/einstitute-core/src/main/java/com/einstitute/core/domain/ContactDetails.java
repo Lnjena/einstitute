@@ -24,6 +24,14 @@ public class ContactDetails implements Serializable {
 
 	@Field
 	private List<Contact> contacts;
+	
+	public ContactDetails(){
+	}
+
+	public ContactDetails(List<Address> addresses, List<Contact> contacts) {
+		this.addresses = addresses;
+		this.contacts = contacts;
+	}
 
 	public List<Address> getAddresses() {
 		return addresses;

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.bson.types.ObjectId;
 import org.joda.time.LocalDate;
@@ -21,6 +22,8 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.web.client.RestTemplate;
 import org.testng.annotations.Test;
 
+import com.einstitute.core.domain.Address.AddressType;
+import com.einstitute.core.domain.Contact.Type;
 import com.einstitute.core.domain.Transaction.Status;
 import com.einstitute.core.domain.schedule.Frequency;
 import com.einstitute.core.domain.schedule.FrequencyType;
@@ -236,7 +239,7 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		
 		//Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657");
 		//Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null, null, null);
-		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", "Ln", "Jena");
+		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null,"Ln", "Jena");
 		
 		entityRepository.save(ent);
 	}
@@ -329,13 +332,15 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 	//@Test
 	public void test_createEntity() {
 		
-		Identity id = new Identity("F818480234", "Passport", "Fir Mid Sur", "Govt of India", new LocalDate(2006, 8, 16), new LocalDate(2016, 8, 16), "IN");
-		List<Identity> socialSecurityIds = new ArrayList<Identity>();
-		socialSecurityIds.add(id);
-		
-		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", "Ln", "Jena");
-		
-		entityRepository.insert(ent);
+		Contact contact = new Contact(Type.EMAIL,"test@yahoo.com",true);
+		Address address = new Address(AddressType.HOME,"44 Renaissance Court", "Prince regent road", StringUtils.EMPTY, "Hounslow","Middlesex", "UK", "TW31QH");
+		List<Address> addresses = new ArrayList<Address>();
+		List<Contact> contacts = new ArrayList<Contact>();
+		addresses.add(address);
+		contacts.add(contact);
+		ContactDetails contactDetails = new ContactDetails(addresses, contacts);
+		Entity entity = new Entity("in.del.del.north.dps5657.2015.cls1.S1005","STUDENT","in.del.del.north.dps5657",contactDetails,"Arvind","Kumar");
+		entityRepository.insert(entity);
 	}
 	
 	//@Test

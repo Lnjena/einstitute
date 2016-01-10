@@ -29,4 +29,20 @@ public class ExtraPersonalDetails implements Serializable {
 	@Field
 	private Nationality nationality;
 
+	public Religion getReligion() {
+		return religion;
+	}
+
+	public Caste getCaste() {
+		return caste;
+	}
+
+	public String getSubCaste() {
+		return subCaste;
+	}
+
+	public Nationality getNationality() {
+		return nationality;
+	}
+
 }

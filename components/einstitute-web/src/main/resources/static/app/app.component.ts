@@ -3,6 +3,7 @@ import {ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {LoginComponent} from './login.component';
 import {MenuComponent} from './menu.component';
 import {DashboardComponent} from './dashboard.component';
+import {UserRegistrationComponent} from './registration/user.registration.component';
 import {User} from './user.model';
 
 @Component({
@@ -15,6 +16,7 @@ import {User} from './user.model';
 	{ path: "/home", name: "Main", component: LoginComponent },
 	{ path: "/app", name: "Menu", component: MenuComponent },
 	{ path: "/app/user/dashboard", name: "UserDashboard", component: DashboardComponent },
+	{ path: "/app/user/registration", name: "UserRegistration", component: UserRegistrationComponent },
 	{ path: "/app/activities/dashboard", name: "ActivitiesDashboard", component: DashboardComponent },
 	{ path: "/app/wallet/dashboard", name: "WalletDashboard", component: DashboardComponent },
 	{ path: "/app/library/dashboard", name: "LibraryDashboard", component: DashboardComponent },

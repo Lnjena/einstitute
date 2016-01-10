@@ -24,7 +24,7 @@ export class MenuComponent extends BaseComponent {
 				userId: "I1001"				
 			},
 		menuItems: [
-			{ components: ["UserDashboard"], category: "User" },	
+			{ components: ["UserDashboard", "UserRegistration"], category: "User" },	
 			{ components: ["ActivitiesDashboard"], category: "Activities" },
 			{ components: ["WalletDashboard"], category: "Wallet" },
 			{ components: ["LibraryDashboard"], category: "Library" },

@@ -34,16 +34,31 @@ public class Identity implements Serializable {
 	@Field("soc_id_country_code")
 	private String countryCode;
 
-	public Identity(String id, String idType, String personName, String issueAuthority, LocalDate issueDate, LocalDate expiryDate,
-			String countryCode) {
-		super();
-		this.id = id;
-		this.idType = idType;
-		this.personName = personName;
-		this.issueAuthority = issueAuthority;
-		this.issueDate = issueDate;
-		this.expiryDate = expiryDate;
-		this.countryCode = countryCode;
+	public String getId() {
+		return id;
 	}
-	
+
+	public String getIdType() {
+		return idType;
+	}
+
+	public String getPersonName() {
+		return personName;
+	}
+
+	public String getIssueAuthority() {
+		return issueAuthority;
+	}
+
+	public LocalDate getIssueDate() {
+		return issueDate;
+	}
+
+	public LocalDate getExpiryDate() {
+		return expiryDate;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
 }

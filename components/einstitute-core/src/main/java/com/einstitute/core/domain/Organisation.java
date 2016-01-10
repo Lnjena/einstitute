@@ -1,7 +1,6 @@
 package com.einstitute.core.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -32,22 +31,18 @@ public class Organisation implements Serializable {
 	private String parentOrgCode;
 			
 	@Field
-	private List<ContactDetails> contacts;
-	
-	@Field
 	private boolean active;
 	
 	public Organisation(){}
 
 	public Organisation(String _id, String name, String ownerEntId, String parentOrgCode) {
-		super();
 		this._id = _id;
 		this.name = name;
 		this.owner = new Entity(_id);
 		this.parentOrgCode = parentOrgCode;
 		this.active = true;
 	}
-	
+
 	public Organisation(String _id) {
 		this._id = _id;
 	}
@@ -66,10 +61,6 @@ public class Organisation implements Serializable {
 
 	public String getParentOrgCode() {
 		return parentOrgCode;
-	}
-
-	public List<ContactDetails> getContacts() {
-		return contacts;
 	}
 
 	public boolean isActive() {

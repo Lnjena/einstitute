@@ -39,14 +39,14 @@ public class PaymentPersistenceIntegrationTest extends AbstractTestNGSpringConte
 		discountRepository.save(discount);
 	}
 
-	@Test
+	//@Test
 	public void test_DiscountfindBy_Id() {
 		Discount discount = discountRepository.findOne(new ObjectId("5637495060018fed9d5f9287"));
 		LOGGER.info("Discount description:" + discount.getDescription());
 		Assert.assertNotNull(discount);
 	}
 
-	@Test
+	//@Test
 	public void test_createPayment() {
 		Calendar startDate = Calendar.getInstance();
 		startDate.set(2015, 4, 1);
