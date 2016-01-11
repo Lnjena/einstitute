@@ -1,6 +1,6 @@
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Injectable} from 'angular2/core';
-import {Entity} from 'app/entity.model';
+import {Entity} from 'app/user/profile/entity.model';
 
 @Injectable()
 export class RegistrationService {

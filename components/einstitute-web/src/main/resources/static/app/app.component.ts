@@ -8,7 +8,7 @@ import {LoginComponent} from 'app/user/login.component';
 import {WalletComponent} from 'app/user/wallet/wallet.component';
 import {LockerComponent} from 'app/user/locker/locker.component';
 import {AdminComponent} from 'app/admin/admin.component';
-import {UserRegistrationComponent} from './registration/user.registration.component';
+import {UserRegistrationComponent} from 'app/user/profile/registration.component';
 
 
 @Component({

@@ -2,15 +2,15 @@ import {bootstrap} from 'angular2/platform/browser';
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm} from 'angular2/common';
-import {Entity,EntityHeader,Address} from 'app/entity.model';
-import {BaseComponent} from 'app/main.component';
-import {PersonalFormComponent} from 'app/personal.component';
-import {AddressFormComponent} from 'app/address.component';
-import {RegistrationService} from './registration.service';
+import {Entity,EntityHeader,Address} from 'app/user/profile/entity.model';
+import {BaseComponent} from 'app/common/base.component';
+import {PersonalFormComponent} from 'app/user/profile/personal.component';
+import {AddressFormComponent} from 'app/user/profile/address.component';
+import {RegistrationService} from 'app/user/profile/registration.service';
 
 @Component({
 	selector:'entity-form',
-	templateUrl: 'app/registration/user.registration.view.html',
+	templateUrl: 'app/user/profile/registration.view.html',
 	providers: [HTTP_PROVIDERS, RegistrationService],
 	directives: [PersonalFormComponent, AddressFormComponent ]
 })
