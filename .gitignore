@@ -36,3 +36,4 @@ exec_sonar.bat
 .metadata
 .pmd
 .pmdruleset.xml
+node_modules

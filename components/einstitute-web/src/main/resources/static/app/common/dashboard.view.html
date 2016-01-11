@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="row">
+			<div class="col-md-6 col-sm-6" *ngFor="#dshItem of dashboardItems">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							{{dshItem.title}}
+						</h3>
+					</div>
+					<div class="panel-body">
+						{{dshItem.content}}
+					</div>
+					<div class="panel-footer">
+						{{dshItem.footer}}
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

@@ -1,14 +1,14 @@
 import {Component, Input} from 'angular2/core';
 import {ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
-import {BaseComponent} from './main.component';
-import {UserAuthenticationService} from './user.service';
-import {MenuComponent} from './menu.component';
-import {DashboardComponent} from './dashboard.component';
+import {BaseComponent} from 'app/common/base.component';
+import {UserAuthenticationService} from 'app/user/user.service';
+import {MenuComponent} from 'app/common/menu.component';
+import {DashboardComponent} from 'app/common/dashboard.component';
 
 
 @Component({
 	selector: 'login-comp',
-	templateUrl: 'app/login.view.html',
+	templateUrl: 'app/user/login.view.html',
 	providers: [UserAuthenticationService, ROUTER_PROVIDERS],
 	directives: [ROUTER_DIRECTIVES, DashboardComponent]
 })
