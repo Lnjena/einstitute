@@ -5,14 +5,10 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 @Document(collection="entity")
 public class Entity implements Serializable {
@@ -44,10 +40,6 @@ public class Entity implements Serializable {
 	
 	@NotNull
 	@Field
-	private ContactDetails contactDetails;
-	
-	@NotNull
-	@Field
 	private ExtraPersonalDetails extraPersonalDetails;
 	
 	@DBRef(lazy=true)
@@ -55,13 +47,13 @@ public class Entity implements Serializable {
 	
 	public Entity() {}
 
-	public Entity(String _id, String entityType, String orgCode, 
+	public Entity(String _id, String entityType, String orgCode,ContactDetails contactDetails,
 			String firstName, String lastName) {
 		super();
 		this._id = _id;
 		this.entityType = entityType;
 		this.organisation = new Organisation(orgCode);
-		this.entityHeader = new EntityHeader(firstName, lastName);
+		this.entityHeader = new EntityHeader(firstName, lastName, contactDetails);
 	}
 	
 	public Entity(String _id) {
@@ -86,10 +78,6 @@ public class Entity implements Serializable {
 
 	public List<Guarantor> getGuarantors() {
 		return guarantors;
-	}
-
-	public ContactDetails getContactDetails() {
-		return contactDetails;
 	}
 
 	public ExtraPersonalDetails getExtraPersonalDetails() {

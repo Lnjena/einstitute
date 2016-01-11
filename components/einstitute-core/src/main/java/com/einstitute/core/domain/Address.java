@@ -40,7 +40,10 @@ public class Address implements Serializable {
 	
 	@Field
 	private DateTime dateCreated;
-
+	
+	public Address(){
+	}
+	
 	public Address(AddressType type, String line1, String line2, String line3, String city,
 			String province, String countryCode, String postCode) {
 		super();
