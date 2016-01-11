@@ -3,7 +3,7 @@ import {Injectable} from 'angular2/core';
 import {Entity} from 'app/user/profile/entity.model';
 
 @Injectable()
-export class RegistrationService {
+export class ProfileService {
 	http: Http;
 	constructor(http: Http) {
 	    this.http = http;

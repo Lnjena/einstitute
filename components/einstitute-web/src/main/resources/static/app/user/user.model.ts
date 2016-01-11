@@ -19,6 +19,18 @@
 export class User {
 	userId: String;
 	password: String;
+	confirmPassword: String;
+	firstName: String;
+	midlleName: String;
+	lastName: String;
+	birthDate: Date;
+	email: String;
+	mobile: String;
 	role: String;
+	tempAuthCode: String;
 	authenticated: Boolean = false;
+	
+	public getFullName(){
+		this.firstName+' '+this.lastName;
+	}
 }

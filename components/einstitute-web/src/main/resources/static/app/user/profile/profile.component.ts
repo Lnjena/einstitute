@@ -6,12 +6,12 @@ import {Entity,EntityHeader,Address} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
 import {PersonalFormComponent} from 'app/user/profile/personal.component';
 import {AddressFormComponent} from 'app/user/profile/address.component';
-import {RegistrationService} from 'app/user/profile/registration.service';
+import {ProfileService} from 'app/user/profile/profile.service';
 
 @Component({
 	selector:'entity-form',
-	templateUrl: 'app/user/profile/registration.view.html',
-	providers: [HTTP_PROVIDERS, RegistrationService],
+	templateUrl: 'app/user/profile/profile.view.html',
+	providers: [HTTP_PROVIDERS, ProfileService],
 	directives: [PersonalFormComponent, AddressFormComponent ]
 })
 
@@ -21,15 +21,14 @@ export class UserRegistrationComponent extends BaseComponent {
 	address:Address;
 	
 	model:Entity;
-	registrationService: RegistrationService;
+	profileService: ProfileService;
 
-	constructor(registrationService: RegistrationService) {
-		console.log('loading registation');
+	constructor(profileService: ProfileService) {
 		this.model = new Entity();
 		this.entityHeader=new EntityHeader();
 		this.address= new Address();
-		this.registrationService=registrationService;
-		/*obs = this.registrationService.getEntity('in.del.del.north.dps5657.2015.cls1.S1005');
+		this.profileService=profileService;
+		/*obs = this.profileService.getEntity('in.del.del.north.dps5657.2015.cls1.S1005');
 		console.log(obs);
 		obs.subscribe(res => {
 			this.model = res.json();
@@ -46,6 +45,6 @@ export class UserRegistrationComponent extends BaseComponent {
 		this.model.entityHeader=this.entityHeader;
 		this.model.entityHeader.contactDetails.addresses[0]=this.address
 		console.log(this.model);
-        this.registrationService.saveEntity(this.model);
+        this.profileService.saveEntity(this.model);
 	}
 }
