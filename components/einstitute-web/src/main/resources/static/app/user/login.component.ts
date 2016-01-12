@@ -4,6 +4,7 @@ import {BaseComponent} from 'app/common/base.component';
 import {UserAuthenticationService} from 'app/user/user.service';
 import {MenuComponent} from 'app/common/menu.component';
 import {DashboardComponent} from 'app/common/dashboard.component';
+import {User} from "app/user/user.model";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent extends BaseComponent {
 	
 	authenticationService: UserAuthenticationService;
 	_router: Router;
-	@Input() user; //: User = { userId: "", password: "", authenticated: false };
+	@Input() user: User;
 	
 	constructor(authenticationService: UserAuthenticationService, _router: Router) {
 		this.authenticationService = authenticationService;
@@ -26,8 +27,9 @@ export class LoginComponent extends BaseComponent {
 	authenticate(user: User): boolean {
 		if(this.authenticationService.authenticate(user)) {
 			this.user.authenticated = true;
-			
+			sessionStorage.setItem("user.authenticated", "true");
 			console.log("login successful");
+			return true;
 		}
 	}
 }

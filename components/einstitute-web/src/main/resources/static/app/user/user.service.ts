@@ -1,5 +1,5 @@
-import {User} from './user.model';
-import {Resource} from 'app/menu.model';
+import {User} from 'app/user/user.model';
+import {Resource} from 'app/common/menu.model';
 
 /*
 	menuItems: [
@@ -44,7 +44,7 @@ export class UserPermissionService {
 				component: "LoanedArticles",
 				elements: [
 					{ elementId: "", permission: "" },
-					{ elementId: "", permission: "" }
+					{ elementId: "", permission: "" },
 					{ elementId: "", permission: "" }
 				]
 			},
@@ -52,7 +52,7 @@ export class UserPermissionService {
 				component: "SearchLibrary",
 				elements: [
 					{ elementId: "", permission: "" },
-					{ elementId: "", permission: "" }
+					{ elementId: "", permission: "" },
 					{ elementId: "", permission: "" }
 				]
 			}

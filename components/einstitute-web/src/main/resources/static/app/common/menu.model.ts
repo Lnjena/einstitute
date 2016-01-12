@@ -1,3 +1,5 @@
+import {User} from "app/user/user.model";
+
 export class Resource {
 	user: User;
 	menuItems: MenuItem[];
@@ -7,7 +9,7 @@ export class Resource {
 resources: Resource = {
 	user: {
 			userId: "I1001", 
-			role="STUDENT"
+			role:"STUDENT"
 		},
 	menuItems: [
 		{ components: ["DashBoard", "Profile", "Locker", "Favorites"], category: "User" },	

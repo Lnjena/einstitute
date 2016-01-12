@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {BaseComponent} from 'app/common/base.component';
 import {MenuComponent} from 'app/common/menu.component';
 import {DashboardComponent} from 'app/common/dashboard.component';
@@ -14,11 +14,10 @@ import {UserRegistrationComponent} from 'app/user/user.component';
 @Component({
 	selector: 'ei-app',
 	templateUrl: 'app/app.view.html',
-	directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent],
-	providers: [ROUTER_PROVIDERS]
+	directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent]
 })
 @RouteConfig([
-	{ path: "/home", name: "Main", component: LoginComponent },
+	{ path: "/login", name: "Home", component: LoginComponent },
 	{ path: "/app", name: "Menu", component: MenuComponent },
 	{ path: "/app/admin", name: "AdminDashboard", component: AdminComponent },
 	{ path: "/app/user/dashboard", name: "UserDashboard", component: DashboardComponent },
@@ -30,5 +29,12 @@ import {UserRegistrationComponent} from 'app/user/user.component';
 	{ path: "/app/reports/dashboard", name: "ReportsDashboard", component: DashboardComponent }
 ])
 export class App extends BaseComponent {
-	user: User = { userId: "", password: "", authenticated: false };
+	user: User;
+
+	constructor() {
+		this.user = new User();
+		if(sessionStorage.getItem("user.authenticated")) {
+			this.user.authenticated = true;
+		}
+	}
 }
