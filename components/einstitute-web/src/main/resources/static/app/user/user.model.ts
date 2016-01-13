@@ -17,6 +17,7 @@
 	}
 */
 export class User {
+	_id: String;
 	userId: String;
 	password: String;
 	confirmPassword: String;

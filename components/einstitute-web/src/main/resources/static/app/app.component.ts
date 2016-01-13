@@ -9,6 +9,7 @@ import {WalletComponent} from 'app/user/wallet/wallet.component';
 import {LockerComponent} from 'app/user/locker/locker.component';
 import {AdminComponent} from 'app/admin/admin.component';
 import {UserRegistrationComponent} from 'app/user/user.component';
+import {ProfileComponent} from 'app/user/profile/profile.component';
 
 
 @Component({
@@ -23,7 +24,8 @@ import {UserRegistrationComponent} from 'app/user/user.component';
 	{ path: "/app/admin", name: "AdminDashboard", component: AdminComponent },
 	{ path: "/app/user/dashboard", name: "UserDashboard", component: DashboardComponent },
 	{ path: "/app/user/locker", name: "Locker", component: LockerComponent },
-	{ path: "/app/user/registration", name: "UserRegistration", component: UserRegistrationComponent, data: {showPasswordFields:true} },
+	{ path: "/app/user/registration", name: "UserRegistration", component: UserRegistrationComponent, data:{showPasswordFields:true}},
+	{ path: "/app/user/profile", name: "Profile", component: ProfileComponent, data:{'showPasswordFields':false}}},
 	{ path: "/app/activities/dashboard", name: "ActivitiesDashboard", component: DashboardComponent },
 	{ path: "/app/wallet/dashboard", name: "WalletDashboard", component: WalletComponent },
 	{ path: "/app/library/dashboard", name: "LibraryDashboard", component: DashboardComponent },

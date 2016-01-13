@@ -1,5 +1,5 @@
 export enum Relation{FATHER, MOTHER, GUARDIAN};
-export enum Type {PHONE, MOBILE, EMAIL, FAX, FACE_BOOK, TWITTER};
+export enum Type {PHONE, MOBILE, EMAIL, FAX, FACEBOOK, TWITTER};
 export enum AddressType {HOME, RESIDENTIAL, BUSINESS, PERMANENT, RENTED, OFFICE};
 export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI};
 export enum Caste {GENERAL, SC, ST, OBC};
@@ -10,30 +10,14 @@ export class Entity{
 	public _id: string;
 	public entityType: string; 
 	public orgCode: string;
-	public entityHeader: EntityHeader; 
 	public extraPersonalDetails: ExtraPersonalDetails;
 	public guarantors:Guarantor[];
+	public addresses:Address[];
+	public contacts: Contact[];
 	public organisation:Organisation; 
 	constructor(){
-		this.entityHeader = new EntityHeader();
 		this.extraPersonalDetails = new ExtraPersonalDetails();
 		this.organisation=new Organisation();
-	}
-}
-
-export class EntityHeader{
-	public firstName: string;
-	public middleName: string;
-	public lastName: string;
-	public userId: string;
-	public password: string;
-	public birthDate: date;
-	public birthPlace: string;
-	public socialSecurityIds: Identity[];
-	public contactDetails:ContactDetails;
-	constructor() {
-		//this.socialSecurityIds = [new Identity()];
-		this.contactDetails=new ContactDetails();
 	}
 }
 
@@ -46,15 +30,6 @@ export class Identity{
 	public expiryDate: date;
 	public countryCode: string;
 	constructor() {}
-}
-
-export class ContactDetails{
-	public addresses: Address[]; 
-	public contacts: Contact[];
-	constructor() {
-		this.addresses = [new Address()];
-		this.contacts = [new Contact({type:"EMAIL"}), new Contact({type:"PHONE"}), new Contact({type:"MOBILE"})];
-	}
 }
 
 export class Address{
@@ -74,16 +49,15 @@ export class Contact{
 	public category: string;
 	public details: string;
 	public defaultContact: boolean;
-
 	constructor() {}
 }
 
 export class ExtraPersonalDetails{
+	public birthPlace: String;
 	public religion:Religion;
 	public caste:Caste;
 	public subCaste:string;
 	public nationality:Nationality;
-
 	constructor() {}
 }
 

@@ -3,6 +3,7 @@ import {Component, Input} from 'angular2/core';
 import {BaseComponent} from 'app/common/base.component';
 import {NgForm} from 'angular2/common';
 import {User} from 'app/user/user.model';
+import {RouteData} from 'angular2/router';
 
 @Component({
 	selector:'registration-comp',
@@ -11,11 +12,10 @@ import {User} from 'app/user/user.model';
 
 export class UserRegistrationComponent extends BaseComponent<User>{
 	
-	@Input showPasswordFields:Boolean;
+	showPasswordFields:Boolean;
 	userModel: User;
-	constructor() {
+	constructor(data: RouteData) {
+		this.showPasswordFields=data.get('showPasswordFields');
 		this.userModel = new User();
-		
 	}
-	
 }

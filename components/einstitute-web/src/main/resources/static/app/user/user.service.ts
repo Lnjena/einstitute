@@ -32,7 +32,7 @@ export class UserPermissionService {
 			userId: "I1001"
 		},
 		menuItems: [
-			{ components: ["UserDashboard", "UserRegistration", "Locker"], category: "User" },
+			{ components: ["UserDashboard", "UserRegistration", "Locker","Profile"], category: "User" },
 			{ components: ["ActivitiesDashboard"], category: "Activities" },
 			{ components: ["WalletDashboard"], category: "Wallet" },
 			{ components: ["LibraryDashboard"], category: "Library" },
