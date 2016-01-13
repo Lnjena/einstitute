@@ -29,7 +29,7 @@ export class User {
 	mobile: String;
 	role: String;
 	tempAuthCode: String;
-	authenticated: Boolean = false;
+	authenticated: boolean = false;
 	
 	public getFullName(){
 		this.firstName+' '+this.lastName;
