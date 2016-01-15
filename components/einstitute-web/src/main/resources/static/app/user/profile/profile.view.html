@@ -21,13 +21,26 @@
     		</div>
     		<div id="addressDetails" class="panel-collapse collapse">
     			<div class="panel-body">
-					<address-form [addressModel]="address"></address-form>
+					<address-form [addressInput]="myAddress"></address-form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+    		<div class="panel-heading">
+      			<h4 class="panel-title">
+        			<a data-toggle="collapse" data-parent="#accordion" href="#extraDetails">Additional Details</a>
+      			</h4>
+    		</div>
+    		<div id="extraDetails" class="panel-collapse collapse">
+    			<div class="panel-body">
+					<extradetails-form [extraDetailsModel]="extraPersonalDetails"></extradetails-form>
 				</div>
 			</div>
 		</div>
 	</div>
 	
 	<form (ngSubmit)="onSubmit()" #entityForm="ngForm">
-		<button type="submit" class="btn btn-default">Submit</button> 
+		<button type="submit" class="btn btn-default">Save Details</button> 
 	</form>
 </div>

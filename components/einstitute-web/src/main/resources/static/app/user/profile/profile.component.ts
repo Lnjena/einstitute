@@ -2,22 +2,25 @@ import {bootstrap} from 'angular2/platform/browser';
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm} from 'angular2/common';
-import {Entity,EntityHeader,Address} from 'app/user/profile/entity.model';
+import {Entity,EntityHeader,Address, ExtraPersonalDetails} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
 import {AddressFormComponent} from 'app/user/profile/address.component';
 import {UserRegistrationComponent} from 'app/user/user.component';
 import {ProfileService} from 'app/user/profile/profile.service';
+import {ExtraDetailsComponent} from 'app/user/profile/extradetails.component';
 
 @Component({
-	selector:'entity-form',
+	selector:'profile-comp',
 	templateUrl: 'app/user/profile/profile.view.html',
 	providers: [HTTP_PROVIDERS, ProfileService],
-	directives: [AddressFormComponent, UserRegistrationComponent]
+	directives: [AddressFormComponent, UserRegistrationComponent, ExtraDetailsComponent]
 })
 
 export class ProfileComponent extends BaseComponent {
 	
 	address:Address;
+	myAddress: Address = new Address();
+	extraPersonalDetails:ExtraPersonalDetails;
 	model:Entity;
 	profileService: ProfileService;
 	showPasswordFields:Boolean;
@@ -25,6 +28,8 @@ export class ProfileComponent extends BaseComponent {
 	constructor(profileService: ProfileService) {
 		this.model = new Entity();
 		this.address= new Address();
+		console.log("Profile View", this.address.allCountries);
+		this.extraPersonalDetails = new ExtraPersonalDetails();
 		this.profileService=profileService;
 		this.showPasswordFields=false;
 		/*obs = this.profileService.getEntity('in.del.del.north.dps5657.2015.cls1.S1005');
