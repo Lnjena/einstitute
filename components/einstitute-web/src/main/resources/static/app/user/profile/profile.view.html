@@ -21,7 +21,7 @@
     		</div>
     		<div id="addressDetails" class="panel-collapse collapse">
     			<div class="panel-body">
-					<address-form [addressInput]="myAddress"></address-form>
+					<address-form [addressModel]="address"></address-form>
 				</div>
 			</div>
 		</div>
@@ -35,6 +35,32 @@
     		<div id="extraDetails" class="panel-collapse collapse">
     			<div class="panel-body">
 					<extradetails-form [extraDetailsModel]="extraPersonalDetails"></extradetails-form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+    		<div class="panel-heading">
+      			<h4 class="panel-title">
+        			<a data-toggle="collapse" data-parent="#accordion" href="#guardianDetails">Guardian Details</a>
+      			</h4>
+    		</div>
+    		<div id="#guardianDetails" class="panel-collapse collapse">
+    			<div class="panel-body">
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+    		<div class="panel-heading">
+      			<h4 class="panel-title">
+        			<a data-toggle="collapse" data-parent="#accordion" href="#socialsecurityDetails">Social Security Details</a>
+      			</h4>
+    		</div>
+    		<div id="socialsecurityDetails" class="panel-collapse collapse">
+    			<div class="panel-body">
+					<identity-form [identityModel]="identityModel"></identity-form>
 				</div>
 			</div>
 		</div>

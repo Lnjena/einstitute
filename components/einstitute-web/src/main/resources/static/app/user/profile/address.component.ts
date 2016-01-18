@@ -11,14 +11,11 @@ import {CountryComponent} from 'app/user/profile/country.component';
 })
 
 export class AddressFormComponent extends BaseComponent<Address>{
-	@Input addressInput: Address;
-	addressModel: Address;
-	constructor() {
-		this.addressModel = new Address();
-		console.log('countries========================',this.addressInput);
-	}
+	@Input() addressModel: Address;
+
+	constructor() {	}
 	
 	getModel(){
-		return this.addressInput;
+		return this.addressModel;
 	}
 }
