@@ -7,13 +7,15 @@ export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI}
 export enum Caste {GENERAL, SC, ST, OBC};
 
 export class Entity{
-	public _id: String;
+	public userId: String;
 	public entityType: String; 
 	public orgCode: String;
 	public extraPersonalDetails: ExtraPersonalDetails;
 	public guarantors:Guarantor[];
 	public addresses:Address[];
 	public contacts: Contact[];
+	public academics: Academic[];
+	public identities:Identity[];
 	public organisation:Organisation; 
 	constructor(){
 		this.extraPersonalDetails = new ExtraPersonalDetails();
@@ -24,7 +26,6 @@ export class Entity{
 export class Identity{
 	public id: String;
 	public idType: String;
-	public docId: String
 	public personName: String;
 	public issueAuthority: String;
 	public issueDate: date;
@@ -71,6 +72,15 @@ export class Guarantor{
 	public primary:boolean;
 	constructor() {
 		this.refEntity=new Entity();
+	}
+}
+
+export class Academic{
+	public qualification:String;
+	public institute: String;
+	public grade: String;
+	public year:Integer;
+	constructor() {
 	}
 }
 

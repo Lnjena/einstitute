@@ -10,6 +10,6 @@ public interface EntityRepository extends MongoRepository<Entity, String> {
 	
 	public List<Entity> findByEntityType(String entityType);
 	
-	public Entity findBy_id(String id);
+	public Entity findByUserId(String userId);
 
 }

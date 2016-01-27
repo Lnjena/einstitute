@@ -9,11 +9,23 @@ import {BaseComponent} from 'app/common/base.component';
 })
 
 export class IdentityComponent extends BaseComponent<Identity>{
-	@Input() identityModel: Identity;
+	@Input() identityDocs: Identity[];
+	identityModel:Identity;
 
-	constructor() {	}
+	constructor() {
+		this.identityModel=new Identity();
+	}
 	
 	getModel(){
 		return this.identityModel;
+	}
+	
+	addItem(){
+		var nextIndex=0;
+		if(this.identityDocs.length>0){
+			nextIndex=this.identityDocs.length;
+		}
+		this.identityDocs[nextIndex]=this.identityModel;
+		this.identityModel=new Identity();
 	}
 }

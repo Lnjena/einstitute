@@ -12,27 +12,31 @@ public class Identity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1932947442074280041L;
 	
-	@Field("soc_id")
+	@Field
 	private String id;
 	
-	@Field("soc_id_type")
+	@Field
 	private String idType;
 	
-	@Field("soc_id_person_name")
+	@Field
 	private String personName;
 	
-	@Field("soc_id_issue_auth")
+	@Field
 	private String issueAuthority;
 	
-
-	@Field("soc_id_issue_date")
+	@Field
 	private LocalDate issueDate;
 	
-	@Field("soc_id_exp_date")
+	@Field
 	private LocalDate expiryDate;
 	
-	@Field("soc_id_country_code")
+	@Field
 	private String countryCode;
+
+	
+	public Identity() {
+		super();
+	}
 
 	public String getId() {
 		return id;

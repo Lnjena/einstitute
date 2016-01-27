@@ -17,7 +17,9 @@ export class ProfileService {
 		console.log(JSON.stringify(entityForm));
 		var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-		this.http.post('/einstitute/entities', JSON.stringify(entityForm),{headers:headers});
+		this.http.post('/einstitute/entities', JSON.stringify(entityForm),{headers:headers})
+		.map(res => res.json()).subscribe(
+	    	      () => console.log('Profile Updated'));
 	}
 }
 

@@ -60,7 +60,20 @@
     		</div>
     		<div id="socialsecurityDetails" class="panel-collapse collapse">
     			<div class="panel-body">
-					<identity-form [identityModel]="identityModel"></identity-form>
+					<identity-form [identityDocs]="identityDocs"></identity-form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+    		<div class="panel-heading">
+      			<h4 class="panel-title">
+        			<a data-toggle="collapse" data-parent="#accordion" href="#academicDetails">Academic Details</a>
+      			</h4>
+    		</div>
+    		<div id="academicDetails" class="panel-collapse collapse">
+    			<div class="panel-body">
+					<academic-comp [academicHistory]="academicHistory"></academic-comp>
 				</div>
 			</div>
 		</div>

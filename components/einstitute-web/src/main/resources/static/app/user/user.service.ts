@@ -1,5 +1,12 @@
+import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
+import {Injectable} from 'angular2/core';
 import {User} from 'app/user/user.model';
 import {Resource} from 'app/common/menu.model';
+import	'rxjs/Rx';
+
+
+
+
 
 /*
 	menuItems: [
@@ -18,7 +25,7 @@ import {Resource} from 'app/common/menu.model';
 
 export class UserAuthenticationService {
 	public authenticate(user: User): boolean {
-		if(user.userId == "lnj") {
+		if(user.userId == "lnj" || user.userId == "arvindk") {
 			return true;
 		}
 		return false;
@@ -63,3 +70,31 @@ export class UserPermissionService {
 		return this.resources;
 	}
 }
+
+
+@Injectable()
+export class UserService{
+	
+	http:Http;
+
+	constructor(http:Http) {
+		this.http=http;
+	}
+
+	createUser(userForm:User){
+		console.log(JSON.stringify(userForm));
+		var headers = new Headers();
+	    headers.append('Content-Type', 'application/json');
+	    this.http.post('/einstitute/users', JSON.stringify(userForm),{headers:headers})
+	    .map(res => res.json()).subscribe(
+	    	      () => console.log('Registration Complete'));
+		console.log('Success');
+	    
+	}
+	
+	getUser(userId:string){
+		return this.http.get('/einstitute/users/'+userId);
+	}
+
+}
+

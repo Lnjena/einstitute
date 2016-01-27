@@ -20,7 +20,8 @@ public class Entity implements Serializable {
 
 	@NotNull
 	@Id
-	private String _id;	
+	@Field("_id")
+	private String userId;	
 	
 	@NotNull
 	@Field
@@ -30,11 +31,6 @@ public class Entity implements Serializable {
 	@DBRef(lazy=true)
 	private Organisation organisation;
 	
-	@NotNull
-	@Field
-	private EntityHeader entityHeader;
-	
-	@NotNull
 	@DBRef(lazy=true)
 	private List<Guarantor> guarantors;
 	
@@ -42,26 +38,32 @@ public class Entity implements Serializable {
 	@Field
 	private ExtraPersonalDetails extraPersonalDetails;
 	
+	@Field
+	private List<Address> addresses;
+	
+	private List<AcademicDetail> academics;
+	
+	private List<Identity> identities;
+	
 	@DBRef(lazy=true)
 	private Wallet wallet;
 	
 	public Entity() {}
 
-	public Entity(String _id, String entityType, String orgCode,ContactDetails contactDetails,
+	public Entity(String userId, String entityType, String orgCode,ContactDetails contactDetails,
 			String firstName, String lastName) {
 		super();
-		this._id = _id;
+		this.userId = userId;
 		this.entityType = entityType;
 		this.organisation = new Organisation(orgCode);
-		this.entityHeader = new EntityHeader(firstName, lastName, contactDetails);
 	}
 	
-	public Entity(String _id) {
-		this._id = _id;
+	public Entity(String userId) {
+		this.userId=userId;
 	}
-
-	public String get_id() {
-		return _id;
+	
+	public String getUserId() {
+		return userId;
 	}
 
 	public String getEntityType() {
@@ -72,10 +74,6 @@ public class Entity implements Serializable {
 		return organisation;
 	}
 
-	public EntityHeader getEntityHeader() {
-		return entityHeader;
-	}
-
 	public List<Guarantor> getGuarantors() {
 		return guarantors;
 	}
@@ -84,7 +82,20 @@ public class Entity implements Serializable {
 		return extraPersonalDetails;
 	}
 
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public List<AcademicDetail> getAcademics() {
+		return academics;
+	}
+
+	public List<Identity> getIdentities() {
+		return identities;
+	}
+
 	public Wallet getWallet() {
 		return wallet;
 	}
+
 }
