@@ -25,6 +25,7 @@ export class LoginComponent extends BaseComponent {
 		if(this._authenticationService.authenticate(user)) {
 			user.authenticated = true;
 			sessionStorage.setItem("user.authenticated", "true");
+			sessionStorage.setItem("user.userId",user.userId);
 			console.log("login successful");
 			return true;
 		}

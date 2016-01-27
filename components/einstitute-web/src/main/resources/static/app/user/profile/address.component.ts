@@ -10,18 +10,12 @@ import {Entity} from "./entity.model";
 	templateUrl: 'app/user/profile/address.view.html',
 	directives: [CountryComponent]
 })
+export class AddressFormComponent extends BaseComponent<Address>{
+	@Input() addressModel: Address;
 
-export class AddressFormComponent extends BaseComponent {
-	@Input('addressInput') addressInput: Address;
-	@Input('myEntity') myEntity: Entity;
-	addressModel: Address;
+	constructor() {	}
 
-
-	constructor() {
-		this.addressModel = new Address();
-	}
-	
 	getModel(){
-		return this.addressInput;
+		return this.addressModel;
 	}
 }

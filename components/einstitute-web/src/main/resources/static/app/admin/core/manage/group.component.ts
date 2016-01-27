@@ -2,13 +2,14 @@
 import {Component} from "angular2/core";
 import {SearchComponent} from "../../../common/search.component";
 import {Input} from "angular2/core";
+import {EntityGroup} from "../../../user/profile/entity.model";
 
 @Component({
     selector: '',
     templateUrl: ''
 })
 export class CreateGroupComponent {
-    _group:
+    _group: EntityGroup;
 
 }
 
