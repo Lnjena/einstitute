@@ -1,7 +1,7 @@
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm} from 'angular2/common';
-import {Entity,EntityHeader,Address, ExtraPersonalDetails, Identity, Academic} from 'app/user/profile/entity.model';
+import {Entity,Address, ExtraPersonalDetails, Identity, Academic} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
 import {AddressFormComponent} from 'app/user/profile/address.component';
 import {UserRegistrationComponent} from 'app/user/user.component';
