@@ -38,15 +38,17 @@ export class ProfileComponent extends BaseComponent {
 		this.academicHistory=[];
 		
 		obs = this.profileService.getEntity(sessionStorage.getItem("user.userId"));
-		console.log(obs);
-		obs.subscribe(res => {
-			this.model = res.json();
-			console.log(this.model);
-			this.address = this.model.addresses[0];
-			this.academics=this.model.academics;
-			this.identities=this.model.identities;
-			this.extraPersonalDetails=this.model.extraPersonalDetails;
-	    });
+		//console.log(obs);
+		if(obs!=null){
+			obs.subscribe(res => {
+				this.model = res.json();
+				console.log(this.model);
+				this.address = this.model.addresses[0];
+				this.academics=this.model.academics;
+				this.identities=this.model.identities;
+				this.extraPersonalDetails=this.model.extraPersonalDetails;
+		    });
+		}
 	}
 	
 	onSubmit() {

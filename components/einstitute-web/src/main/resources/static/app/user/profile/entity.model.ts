@@ -20,6 +20,8 @@ export class Entity{
 	constructor(){
 		this.extraPersonalDetails = new ExtraPersonalDetails();
 		this.organisation=new Organisation();
+		this.addresses=[];
+		this.identities=[];
 	}
 }
 
