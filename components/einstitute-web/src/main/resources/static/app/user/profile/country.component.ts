@@ -12,10 +12,9 @@ import {BaseComponent} from 'app/common/base.component';
 })
 
 export class CountryComponent extends BaseComponent<Country>{
-	@Input countriesInput: Country[];
+	@Input() countriesInput: Country[];
 
 	constructor(){
-		this.countriesInput = new Address().allCountries;
-		console.log(this.countries);
+
 	}
 }

@@ -1,13 +1,14 @@
-import {bootstrap} from 'angular2/platform/browser';
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm} from 'angular2/common';
-import {Entity,EntityHeader,Address, ExtraPersonalDetails} from 'app/user/profile/entity.model';
+import {Entity, Address, ExtraPersonalDetails} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
 import {AddressFormComponent} from 'app/user/profile/address.component';
 import {UserRegistrationComponent} from 'app/user/user.component';
 import {ProfileService} from 'app/user/profile/profile.service';
 import {ExtraDetailsComponent} from 'app/user/profile/extradetails.component';
+import {COUNTRIES} from "./data";
+
 
 @Component({
 	selector:'profile-comp',
@@ -18,19 +19,25 @@ import {ExtraDetailsComponent} from 'app/user/profile/extradetails.component';
 
 export class ProfileComponent extends BaseComponent {
 	
-	address:Address;
-	myAddress: Address = new Address();
-	extraPersonalDetails:ExtraPersonalDetails;
-	model:Entity;
+	address: Address;
+	myAddress: Address;
+
+	myEntity: Entity = new Entity();
+
+	extraPersonalDetails: ExtraPersonalDetails;
+	model: Entity;
 	profileService: ProfileService;
-	showPasswordFields:Boolean;
+	showPasswordFields: Boolean;
 
 	constructor(profileService: ProfileService) {
 		this.model = new Entity();
 		this.address= new Address();
-		console.log("Profile View", this.address.allCountries);
+		this.myAddress = new Address();
+		this.myAddress.allCountries = COUNTRIES;
+		//console.log("Profile View", this.myAddress.allCountries);
 		this.extraPersonalDetails = new ExtraPersonalDetails();
-		this.profileService=profileService;
+		this.extraPersonalDetails.birthPlace = "INDIA";
+		this.profileService = profileService;
 		this.showPasswordFields=false;
 		/*obs = this.profileService.getEntity('in.del.del.north.dps5657.2015.cls1.S1005');
 		console.log(obs);

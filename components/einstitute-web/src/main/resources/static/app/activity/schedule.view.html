@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="col-sm-9 col-md-9">
+            <input type="text" class="form-control" #scheduleText>
+        </div>
+        <div class="col-sm-2 col-md-2">
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Scheduler</button>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" >
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Schedule this Activity</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12 col-md-12">
+                    <form class="form-signin" (ngSubmit)="onSave()">
+                        <!--<input type="text" class="form-control" placeholder="Description: " required autofocus [(ngModel)]="schedule.description">-->
+                        <input type="text" class="form-control" placeholder="Start Date: " required autofocus [(ngModel)]="schedule.startDate">
+                        <input type="text" class="form-control" placeholder="Frequency: " required autofocus [(ngModel)]="schedule.frequency">
+                        <input type="text" class="form-control" placeholder="# Activity End Date: " required autofocus [(ngModel)]="schedule.endDate">
+                        <input type="text" class="form-control" placeholder="# Stop After Occurrences: " required autofocus [(ngModel)]="schedule.recurrences">
+                        <input type="text" class="form-control" placeholder="Last Run Date: " required autofocus [(ngModel)]="schedule.lastDueDate">
+                        <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>-->
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSave()">Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>

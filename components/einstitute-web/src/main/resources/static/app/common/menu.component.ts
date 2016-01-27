@@ -14,13 +14,9 @@ import {User} from "../user/user.model";
 	providers: [UserPermissionService]
 })
 export class MenuComponent extends BaseComponent {
-	_router: Router;
 	resources: Resource;
 	
-	constructor(_router: Router, userPermissionService: UserPermissionService) {
-		this._router = _router;
+	constructor(userPermissionService: UserPermissionService) {
 		this.resources = <Resource>userPermissionService.getUserPermissions(new User());
 	}
 }
-
-//bootstrap(MenuComponent);

@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-4 col-md-6 col-md-offset-4">
+        <h1 class="text-center login-title">Create New Activity:: </h1>
+        <div class="account-wall">
+            <form class="form-signin" (ngSubmit)="newActivity()">
+                <input type="text" class="form-control" placeholder="Activity Name" required autofocus [(ngModel)]="activity.description">
+                <input type="text" class="form-control" placeholder="Activity Type" required autofocus [(ngModel)]="activity.activityType">
+                <input type="text" class="form-control" placeholder="Assign to Groups" required autofocus [(ngModel)]="activity.assignedGroupIds">
+                <input type="text" class="form-control" placeholder="Activity Output" required autofocus [(ngModel)]="activity.activityOutput">
+                <schedule-cmp [schedule]="activity.schedule" (scheduled)="activity.schedule=$event"></schedule-cmp>
+                <input type="text" class="form-control" placeholder="Is Payable?" required autofocus [(ngModel)]="activity.payable">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -21,13 +21,34 @@ export class Entity{
 	}
 }
 
+export class EntityGroup {
+	constructor(
+		private _id: string,
+		public groupName: string,
+		public groupOwner: string,
+		private _groupMembers: Array<string>,
+		private validDate: Date,
+		private creationDate?: Date
+	) {}
+
+	public addToGroup(entityId: string): Boolean {
+		this._groupMembers.push(entityId);
+
+		return true;
+	}
+
+	public removeFromGroup(): Boolean {
+		return true;
+	}
+}
+
 export class Identity{
 	public id: string;
 	public idType: string;
 	public personName: string;
 	public issueAuthority: string;
-	public issueDate: date;
-	public expiryDate: date;
+	public issueDate: Date;
+	public expiryDate: Date;
 	public countryCode: string;
 	constructor() {}
 }
@@ -41,8 +62,10 @@ export class Address{
 	public province: string;
 	public countryCode: string;
 	public postCode: string;
-	public allCountries: Country[]=COUNTRIES;
-	constructor() {}
+	public allCountries: Country[] = COUNTRIES;
+	constructor() {
+		this.allCountries = COUNTRIES;
+	}
 }
 
 export class Contact{
@@ -71,10 +94,19 @@ export class Guarantor{
 	}
 }
 
-export class Organisation{
-	public _id:string;
-	public name:string;
-	constructor() {}
+export class Organisation {
+	constructor(){}
+	constructor(
+		public orgCode: string,
+		public name: string,
+		ownerId: string,
+		orgAddress: Address,
+		activationDate?: Date = new Date(),
+		renewalDate?: Date,
+		primaryContact?: Contact,
+		secondaryContacts?,
+		childrenOrgCodes?: Array<String>
+	){}
 }
 
 export class Country{
@@ -88,3 +120,4 @@ export class Caste{
 
 export class Nationality{
 }
+
