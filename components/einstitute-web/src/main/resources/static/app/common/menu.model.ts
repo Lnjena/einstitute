@@ -1,9 +1,24 @@
 import {User} from "app/user/user.model";
 
 export class Resource {
-	user: User;
-	menuItems: MenuItem[];
-	permissions: Permission[]
+	constructor(
+		user: User,
+		menuItems: MenuItem[],
+		permissions: Permission[]
+	) {}
+}
+
+export class MenuItem {
+	constructor(
+		components: Array<String>,
+		category: String
+	) {}
+}
+
+export class Permission {
+	constructor(
+
+	) {}
 }
 
 resources: Resource = {
@@ -23,7 +38,7 @@ resources: Resource = {
 			component: "LoanedArticles", 
 			elements: [
 				{ elementId: "", permission: "" },
-				{ elementId: "", permission: "" }
+				{ elementId: "", permission: "" },
 				{ elementId: "", permission: "" }
 			]
 		},
@@ -31,7 +46,7 @@ resources: Resource = {
 			component: "SearchLibrary",
 			elements: [
 				{ elementId: "", permission: "" },
-				{ elementId: "", permission: "" }
+				{ elementId: "", permission: "" },
 				{ elementId: "", permission: "" }
 			]
 		}

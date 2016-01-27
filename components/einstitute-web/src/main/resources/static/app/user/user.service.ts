@@ -39,12 +39,10 @@ export class UserPermissionService {
 			userId: "I1001"
 		},
 		menuItems: [
-			{ components: ["UserDashboard", "UserRegistration", "Locker","Profile"], category: "User" },
-			{ components: ["ActivitiesDashboard"], category: "Activities" },
-			{ components: ["WalletDashboard"], category: "Wallet" },
-			{ components: ["LibraryDashboard"], category: "Library" },
-			{ components: ["ReportsDashboard"], category: "Reports" },
-			{ components: ["AdminDashboard"], category: "Admin" }
+            { components: ["Profile"], category: "User" },
+			{ components: ["ActivitiesMenu"], category: "Activities" },
+			{ components: ["OrdersMenu"], category: "Orders" },
+			{ components: ["OrganisationMenu"], category: "Admin" }
 		],
 		permissions: [
 			{

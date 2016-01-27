@@ -1,0 +1,21 @@
+
+<form (ngSubmit)="save()">
+    <div class="form-group">
+        <!--<label for="owner">Owner: </label>-->
+        <input type="text" placeholder="Owner: " class="form-control" [(ngModel)]="_org.orgCode">
+    </div>
+
+    <div class="form-group">
+        <!--<label for="name">Org Name: </label>-->
+        <input type="text" placeholder="Org Name: " class="form-control" required [(ngModel)]="_org.orgName">
+    </div>
+
+    <div class="form-group">
+        <!--<label for="address">Org Address: </label>-->
+        <address-form [addressModel]="_org.orgAddress"></address-form>
+    </div>
+    <div *ngIf="!readOnly">
+        <button type="submit" class="btn btn-default">Save</button>
+    </div>
+</form>
+

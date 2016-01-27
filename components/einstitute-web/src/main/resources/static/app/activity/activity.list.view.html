@@ -1,0 +1,6 @@
+Activities List View: <br/>
+<ul>
+    <li *ngFor="#activity of activities">
+        <a [routerLink]="['ViewActivityDetails', {id: activity._id}]">{{activity.description}}</a>
+    </li>
+</ul>

@@ -1002,44 +1002,44 @@ export var COUNTRIES: Country[] =
 export var RELIGION: Religion[] =
 	 [ {
 		 "name" : "Hinduism",
-		 "religion_code" : "HN",
+		 "code" : "HN",
 	 }, {
 	     "name" : "Christianity",
-	     "religion_code" : "CH",
+	     "code" : "CH",
 	 }, {
 	     "name" : "Sikhism",
-	     "religion_code" : "SK",
+	     "code" : "SK",
 	 }, {
 	     "name" : "Buddhism",
-	     "religion_code" : "BD",
+	     "code" : "BD",
 	 }, {
 	     "name" : "Islam",
-	     "religion_code" : "IS",
+	     "code" : "IS",
 	 }, {
 	     "name" : "Jainism",
-	     "religion_code" : "JN",
+	     "code" : "JN",
 	 }, {
 	     "name" : "Judaism",
-	     "religion_code" : "JD",
+	     "code" : "JD",
 	 } ]
 
 export var CASTE: Caste[] =
    	 [ {
    		 "name" : "General",
-   		 "religion_code" : "GN",
+   		 "code" : "GN",
    	 }, {
    	     "name" : "SC",
-   	     "religion_code" : "SC",
+   	     "code" : "SC",
    	 }, {
    	     "name" : "ST",
-   	     "religion_code" : "ST",
+   	     "code" : "ST",
    	 }, {
    	     "name" : "OBC",
-   	     "religion_code" : "OB",
+   	     "code" : "OB",
    	 } ]    
 	 
  export var NATIONALITIES: Nationality[] =
    	 [ {
    		 "name" : "Indian",
-   		 "religion_code" : "IND",
+   		 "code" : "IND",
    	 }]	 

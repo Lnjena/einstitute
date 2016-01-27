@@ -10,33 +10,31 @@ import {LockerComponent} from 'app/user/locker/locker.component';
 import {AdminComponent} from 'app/admin/admin.component';
 import {UserRegistrationComponent} from 'app/user/user.component';
 import {ProfileComponent} from 'app/user/profile/profile.component';
+import {ActivityComponent, ListActivitiesComponent, ActivityMainComponent} from "./activity/activity.component";
+import {Router} from "angular2/router";
+import {OrderComponent} from "./order/order.component";
+import {OrganisationComponent} from "./admin/core/manage/organisation.component";
+import {OrganisationMenuComponent} from "./admin/core/manage/organisation.component";
 
 
 @Component({
 	selector: 'ei-app',
 	templateUrl: 'app/app.view.html',
-	directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent]
+    directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent, ActivityComponent]
 })
 @RouteConfig([
-	{ path: "/login", name: "Home", component: LoginComponent },
-	{ path: "/app", name: "Menu", component: MenuComponent },
-	{ path: "/app/admin", name: "AdminDashboard", component: AdminComponent },
-	{ path: "/app/user/dashboard", name: "UserDashboard", component: DashboardComponent },
-	{ path: "/app/user/locker", name: "Locker", component: LockerComponent },
-	{ path: "/app/user/registration", name: "UserRegistration", component: UserRegistrationComponent, data:{showPasswordFields:true}},
-	{ path: "/app/user/profile", name: "Profile", component: ProfileComponent, data:{'showPasswordFields':false}}},
-	{ path: "/app/activities/dashboard", name: "ActivitiesDashboard", component: DashboardComponent },
-	{ path: "/app/wallet/dashboard", name: "WalletDashboard", component: WalletComponent },
-	{ path: "/app/library/dashboard", name: "LibraryDashboard", component: DashboardComponent },
-	{ path: "/app/reports/dashboard", name: "ReportsDashboard", component: DashboardComponent }
+    { path: '/menu', name: 'MenuComponent', component: MenuComponent },
+    { path: "/app/user/profile", name: "Profile", component: ProfileComponent, data:{'showPasswordFields':false}}},
+	{ path: '/activities/...', name: 'ActivitiesRoot', component: ActivityComponent },
+    { path: '/activities/menu', name: 'ActivitiesMenu', component: ActivityMainComponent },
+    { path: '/orders/menu', name: 'OrdersMenu', component: OrderComponent },
+    { path: '/organisations/...', name: 'OrganisationRoot', component: OrganisationComponent },
+    { path: '/organisations/menu', name: 'OrganisationMenu', component: OrganisationMenuComponent }
 ])
 export class App extends BaseComponent {
-	user: User;
-
+    user: User = new User();
 	constructor() {
-		this.user = new User();
-		if(sessionStorage.getItem("user.authenticated")) {
-			this.user.authenticated = true;
-		}
+        if(sessionStorage.getItem("user.authenticated"))
+        this.user.authenticated = true;
 	}
 }

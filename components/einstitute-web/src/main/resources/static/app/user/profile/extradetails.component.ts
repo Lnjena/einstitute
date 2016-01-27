@@ -1,8 +1,8 @@
-import {bootstrap} from 'angular2/platform/browser';
 import {Component, Input} from 'angular2/core';
 import {NgForm} from 'angular2/common';
 import {ExtraPersonalDetails} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
+import {Address} from "app/user/profile/entity.model";
 
 @Component({
 	selector:'extradetails-form',
@@ -11,8 +11,9 @@ import {BaseComponent} from 'app/common/base.component';
 
 export class ExtraDetailsComponent extends BaseComponent<Address>{
 	@Input() extraDetailsModel;
+
 	constructor() {
-		this.extraDetailsModel = new ExtraPersonalDetails();
+
 	}
 	
 	getModel(){

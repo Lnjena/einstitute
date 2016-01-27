@@ -1,8 +1,7 @@
-import {bootstrap} from 'angular2/platform/browser';
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Component} from 'angular2/core';
 import {NgForm} from 'angular2/common';
-import {Entity,EntityHeader,Address, ExtraPersonalDetails, Identity, Academic} from 'app/user/profile/entity.model';
+import {Entity,Address, ExtraPersonalDetails, Identity, Academic} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
 import {AddressFormComponent} from 'app/user/profile/address.component';
 import {UserRegistrationComponent} from 'app/user/user.component';
@@ -32,7 +31,8 @@ export class ProfileComponent extends BaseComponent {
 		this.model = new Entity();
 		this.address= new Address();
 		this.extraPersonalDetails = new ExtraPersonalDetails();
-		this.profileService=profileService;
+		this.extraPersonalDetails.birthPlace = "INDIA";
+		this.profileService = profileService;
 		this.showPasswordFields=false;
 		this.identityDocs=[];
 		this.academicHistory=[];

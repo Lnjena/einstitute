@@ -1,10 +1,25 @@
 import {COUNTRIES} from 'app/user/profile/data';
+import {Entity} from "app/user/profile/entity.model";
 
 export enum Relation{FATHER, MOTHER, GUARDIAN};
 export enum Type {PHONE, MOBILE, EMAIL, FAX, FACEBOOK, TWITTER};
-export enum AddressType {HOME, RESIDENTIAL, BUSINESS, PERMANENT, RENTED, OFFICE};
-export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI};
-export enum Caste {GENERAL, SC, ST, OBC};
+export enum AddressType {HOME = "HOME", RESIDENTIAL = "RESIDENTIAL", BUSINESS = "BUSINESS", PERMANENT = "PERMANENT", RENTED = "RENTED", OFFICE = "OFFICE"};
+//export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI};
+//export enum Caste {GENERAL, SC, ST, OBC};
+
+export class Religion {
+	constructor(
+		private name: string,
+		private code: string
+	){}
+}
+
+export class Caste {
+	constructor(
+		private name: string,
+		private code: string
+	){}
+}
 
 export class Entity{
 	public userId: String;
@@ -25,13 +40,33 @@ export class Entity{
 	}
 }
 
+export class EntityGroup {
+	constructor(
+		private _id: string,
+		public groupName: string,
+		public groupOwner: Entity,
+		private _groupMembers: Array<string>,
+		private validDate: Date,
+		private creationDate?: Date
+	) {}
+
+	public addToGroup(entityId: string): Boolean {
+		this._groupMembers.push(entityId);
+		return true;
+	}
+
+	public removeFromGroup(): Boolean {
+		return true;
+	}
+}
+
 export class Identity{
 	public id: String;
 	public idType: String;
 	public personName: String;
 	public issueAuthority: String;
-	public issueDate: date;
-	public expiryDate: date;
+	public issueDate: Date;
+	public expiryDate: Date;
 	public countryCode: String;
 	constructor() {}
 }
@@ -46,7 +81,9 @@ export class Address{
 	public countryCode: String;
 	public postCode: String;
 	public allCountries: Country[];
+
 	constructor() {
+		this.type = AddressType.HOME;
 		this.allCountries = COUNTRIES;
 	}
 }
@@ -77,18 +114,25 @@ export class Guarantor{
 	}
 }
 
-export class Academic{
+export class Organisation {
+	public orgCode: string;
+	public orgName: string;
+	ownerId: string;
+	public orgAddress: Address = new Address();
+	activationDate: Date = new Date();
+	renewalDate: Date;
+	primaryContact: Contact;
+	secondaryContacts;
+	childrenOrgCodes:Array<String>;
+
+	constructor() {}
+}
+
+export class Academic {
 	public qualification:String;
 	public institute: String;
 	public grade: String;
-	public year:Integer;
-	constructor() {
-	}
-}
-
-export class Organisation{
-	public _id:String;
-	public name:String;
+	public year: Number;
 	constructor() {}
 }
 
