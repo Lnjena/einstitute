@@ -1,34 +1,34 @@
 <form (ngSubmit)="onSubmit()" #addressForm="ngForm">
 	<div class="form-group">
-		<label for="type">Address Type</label>
-		<input type="text" class="form-control" required [(ngModel)]="addressModel.type" ngControl="type" #name="ngForm" >
+		<!--<label for="type">Address Type</label>-->
+		<input type="text" class="form-control" placeholder="Address Type: " required [(ngModel)]="addressModel.type" ngControl="type" #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="line1">Address Line1</label>
-		<input type="text" class="form-control" required [(ngModel)]="addressModel.line1" ngControl="line1" #name="ngForm" >
+		<!--<label for="line1">Address Line1</label>-->
+		<input type="text" class="form-control" placeholder="Address Line1: " required [(ngModel)]="addressModel.line1" ngControl="line1" #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="lin2">Address Line2</label>
-		<input type="text" class="form-control" [(ngModel)]="addressModel.line2" ngControl="line2" #name="ngForm" >
+		<!--<label for="lin2">Address Line2</label>-->
+		<input type="text" class="form-control" placeholder="Address Line2: " [(ngModel)]="addressModel.line2" ngControl="line2" #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="line3">Address Line3</label>
-		<input type="text" class="form-control" [(ngModel)]="addressModel.line3" ngControl="line3"  #name="ngForm" >
+		<!--<label for="line3">Address Line3</label>-->
+		<input type="text" class="form-control" placeholder="Address Line3: " [(ngModel)]="addressModel.line3" ngControl="line3"  #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="city">City</label>
-		<input type="text" class="form-control" [(ngModel)]="addressModel.city" ngControl="city" #name="ngForm" >
+		<!--<label for="city">City</label>-->
+		<input type="text" class="form-control" placeholder="City: " [(ngModel)]="addressModel.city" ngControl="city" #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="state">State</label>
-		<input type="text" class="form-control" [(ngModel)]="addressModel.province" ngControl="province" #name="ngForm" >
+		<!--<label for="state">State</label>-->
+		<input type="text" class="form-control" placeholder="State: " [(ngModel)]="addressModel.province" ngControl="province" #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="postCode">Postcode</label>
-		<input type="text" class="form-control" [(ngModel)]="addressModel.postCode" ngControl="postCode" #name="ngForm" >
+		<!--<label for="postCode">Postcode</label>-->
+		<input type="text" class="form-control" placeholder="Postcode: " [(ngModel)]="addressModel.postCode" ngControl="postCode" #name="ngForm" >
 	</div>
 	<div class="form-group">
-		<label for="country">Country</label>
+		<!--<label for="country">Country</label>-->
 		<country-comp [countriesInput]="addressModel.allCountries"></country-comp>
 	</div>
 </form>
