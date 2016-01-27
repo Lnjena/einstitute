@@ -1,10 +1,25 @@
 import {COUNTRIES} from 'app/user/profile/data';
+import {Entity} from "app/user/profile/entity.model";
 
 export enum Relation{FATHER, MOTHER, GUARDIAN};
 export enum Type {PHONE, MOBILE, EMAIL, FAX, FACEBOOK, TWITTER};
-export enum AddressType {HOME, RESIDENTIAL, BUSINESS, PERMANENT, RENTED, OFFICE};
-export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI};
-export enum Caste {GENERAL, SC, ST, OBC};
+export enum AddressType {HOME = "HOME", RESIDENTIAL = "RESIDENTIAL", BUSINESS = "BUSINESS", PERMANENT = "PERMANENT", RENTED = "RENTED", OFFICE = "OFFICE"};
+//export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI};
+//export enum Caste {GENERAL, SC, ST, OBC};
+
+export class Religion {
+	constructor(
+		private name: string,
+		private code: string
+	){}
+}
+
+export class Caste {
+	constructor(
+		private name: string,
+		private code: string
+	){}
+}
 
 export class Entity{
 	public userId: String;
@@ -27,7 +42,7 @@ export class EntityGroup {
 	constructor(
 		private _id: string,
 		public groupName: string,
-		public groupOwner: string,
+		public groupOwner: Entity,
 		private _groupMembers: Array<string>,
 		private validDate: Date,
 		private creationDate?: Date
@@ -35,7 +50,6 @@ export class EntityGroup {
 
 	public addToGroup(entityId: string): Boolean {
 		this._groupMembers.push(entityId);
-
 		return true;
 	}
 
@@ -65,7 +79,9 @@ export class Address{
 	public countryCode: String;
 	public postCode: String;
 	public allCountries: Country[];
+
 	constructor() {
+		this.type = AddressType.HOME;
 		this.allCountries = COUNTRIES;
 	}
 }
@@ -97,28 +113,25 @@ export class Guarantor{
 }
 
 export class Organisation {
-	constructor() {
-	}
+	public orgCode: string;
+	public orgName: string;
+	ownerId: string;
+	public orgAddress: Address = new Address();
+	activationDate: Date = new Date();
+	renewalDate: Date;
+	primaryContact: Contact;
+	secondaryContacts;
+	childrenOrgCodes:Array<String>;
 
-	constructor(public orgCode:string,
-				public name:string,
-				ownerId:string,
-				orgAddress:Address,
-				activationDate?:Date = new Date(),
-				renewalDate?:Date,
-				primaryContact?:Contact,
-				secondaryContacts?,
-				childrenOrgCodes?:Array<String>) {
-	}
+	constructor() {}
 }
 
-export class Academic{
+export class Academic {
 	public qualification:String;
 	public institute: String;
 	public grade: String;
 	public year: Number;
-	constructor() {
-	}
+	constructor() {}
 }
 
 export class Country{

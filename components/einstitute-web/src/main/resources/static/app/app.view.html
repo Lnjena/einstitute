@@ -1,11 +1,11 @@
-<div class="container-fluid" *ngIf="!user.authenticated" style="background-color:lightgrey;">
+<div class="container-fluid" *ngIf="!user.authenticated" style="background-color:whitesmoke;">
 	<div class="row">
 		<div class="col-md-12">
 			<login-comp [user]="user"></login-comp>
 		</div>
 	</div>
 </div>
-<div class="container-fluid" *ngIf="user.authenticated" style="background-color:lightgrey;">
+<div class="container-fluid" *ngIf="user.authenticated" style="background-color:whitesmoke;">
 	<br/>
 	<div class="row" style="background-color:lightgrey;">
 		<div class="col-md-12">

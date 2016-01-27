@@ -24,6 +24,7 @@ import {OrganisationMenuComponent} from "./admin/core/manage/organisation.compon
 })
 @RouteConfig([
     { path: '/menu', name: 'MenuComponent', component: MenuComponent },
+    { path: "/app/user/profile", name: "Profile", component: ProfileComponent, data:{'showPasswordFields':false}}},
 	{ path: '/activities/...', name: 'ActivitiesRoot', component: ActivityComponent },
     { path: '/activities/menu', name: 'ActivitiesMenu', component: ActivityMainComponent },
     { path: '/orders/menu', name: 'OrdersMenu', component: OrderComponent },

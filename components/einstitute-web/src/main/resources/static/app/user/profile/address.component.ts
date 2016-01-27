@@ -4,6 +4,7 @@ import {Address, Nationality} from 'app/user/profile/entity.model';
 import {BaseComponent} from 'app/common/base.component';
 import {CountryComponent} from 'app/user/profile/country.component';
 import {Entity} from "./entity.model";
+import {AddressType} from "./entity.model";
 
 @Component({
 	selector:'address-form',
@@ -13,7 +14,12 @@ import {Entity} from "./entity.model";
 export class AddressFormComponent extends BaseComponent<Address>{
 	@Input() addressModel: Address;
 
-	constructor() {	}
+	constructor() {
+		if(this.addressModel == null) {
+			this.addressModel = new Address();
+			this.addressModel.type = AddressType.BUSINESS;
+		}
+	}
 
 	getModel(){
 		return this.addressModel;

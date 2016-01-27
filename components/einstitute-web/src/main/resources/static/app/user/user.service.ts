@@ -39,6 +39,7 @@ export class UserPermissionService {
 			userId: "I1001"
 		},
 		menuItems: [
+            { components: ["Profile"], category: "User" },
 			{ components: ["ActivitiesMenu"], category: "Activities" },
 			{ components: ["OrdersMenu"], category: "Orders" },
 			{ components: ["OrganisationMenu"], category: "Admin" }
