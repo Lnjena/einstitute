@@ -25,7 +25,7 @@ import	'rxjs/Rx';
 
 export class UserAuthenticationService {
 	public authenticate(user: User): boolean {
-		if(user.userId == "lnj" || user.userId == "arvindk") {
+		if(user.userId == "lnj@tcs.com" || user.userId == "arvindk@tcs.com") {
 			return true;
 		}
 		return false;

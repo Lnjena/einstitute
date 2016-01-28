@@ -2,11 +2,13 @@
 <button type="button" class="btn btn-info btn-sm" (click)="addToOrder(orderItem)">Add to Cart</button>
 
 <br/>
-<h3>Order Summary:</h3>
-<div *ngFor="#orderIt of _order.orderItems">
-    <label placeholder="Item Name">{{orderIt.item.itemProfile.description}}</label>
-</div>
+
+
 
 <div *ngIf="_order.orderItems.length > 0">
+    <h3>Order Summary:</h3>
+    <div *ngFor="#orderIt of _order.orderItems">
+        <label placeholder="Item Name">{{orderIt.item.itemProfile.description}}</label>
+    </div>
     <button type="button" class="btn btn-info btn-sm" (click)="completeOrder()">Complete Order</button>
 </div>

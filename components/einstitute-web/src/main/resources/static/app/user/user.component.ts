@@ -18,6 +18,13 @@ export class UserRegistrationComponent extends BaseComponent<User>{
 	showPasswordFields:Boolean;
 	userModel: User;
 	userService:UserService;
+
+	constructor(userService: UserService) {
+		this.showPasswordFields = true;
+		this.userModel = new User();
+		this.userService = userService;
+	}
+
 	constructor(data: RouteData, userService:UserService) {
 		this.showPasswordFields=data.get('showPasswordFields');
 		
