@@ -3,60 +3,60 @@
 		<div class="col-md-12">
 			<form role="form" (ngSubmit)="onSubmit()" #registrationForm="ngForm">
 				<div class="form-group">
-					<label for="userId">
+					<!--<label for="userId">
 						User Id
-					</label>
-					<input type="text" class="form-control" required [(ngModel)]="userModel.userId" ngControl="userId" #name="ngForm" />
+					</label>-->
+					<input type="text" placeholder="User Id: " class="form-control" required [(ngModel)]="userModel.userId" ngControl="userId" #name="ngForm" />
 				</div>
 				<div id="passwordFields" *ngIf="showPasswordFields">
 					<div class="form-group">
-						<label for="password">
+						<!--<label for="password">
 							Password
-						</label>
-						<input type="password" class="form-control" required [(ngModel)]="userModel.password" id="password" ngControl="password" #name="ngForm" />
+						</label>-->
+						<input type="password" placeholder="Password: " class="form-control" required [(ngModel)]="userModel.password" id="password" ngControl="password" #name="ngForm" />
 					</div>
 					<div class="form-group">
-						<label for="confirmPassword">
+						<!--<label for="confirmPassword">
 							Confirm password
-						</label>
-						<input type="password" data-match="#password" class="form-control" required [(ngModel)]="userModel.confirmPassword" ngControl="confirmPassword" #name="ngForm" />
+						</label>-->
+						<input type="password" placeholder="Confirm Password: " data-match="#password" class="form-control" required [(ngModel)]="userModel.confirmPassword" ngControl="confirmPassword" #name="ngForm" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="firstName">
+					<!--<label for="firstName">
 						First name
-					</label>
-					<input type="text" class="form-control" required [(ngModel)]="userModel.firstName" ngControl="firstName" #name="ngForm" />
+					</label>-->
+					<input type="text" placeholder="First Name: " class="form-control" required [(ngModel)]="userModel.firstName" ngControl="firstName" #name="ngForm" />
 				</div>
 				<div class="form-group">
-					<label for="middleName">
+					<!--<label for="middleName">
 						Middle name
-					</label>
-					<input type="text" class="form-control" [(ngModel)]="userModel.middleName" ngControl="middleName" #name="ngForm" />
+					</label>-->
+					<input type="text" placeholder="Middle Name: " class="form-control" [(ngModel)]="userModel.middleName" ngControl="middleName" #name="ngForm" />
 				</div>
 				<div class="form-group">
-					<label for="lastName">
+					<!--<label for="lastName">
 						Last name
-					</label>
-					<input type="text" class="form-control" [(ngModel)]="userModel.lastName" ngControl="lastName" #name="ngForm" />
+					</label>-->
+					<input type="text" placeholder="Last Name: " class="form-control" [(ngModel)]="userModel.lastName" ngControl="lastName" #name="ngForm" />
 				</div>
 				<div class="form-group">
-					<label for="birthDate">
+					<!--<label for="birthDate">
 						Birth date
-					</label>
-					<input type="text" class="form-control" [(ngModel)]="userModel.birthDate" ngControl="birthDate" #name="ngForm" />
+					</label>-->
+					<input type="text" placeholder="Birth Date: " class="form-control" [(ngModel)]="userModel.birthDate" ngControl="birthDate" #name="ngForm" />
 				</div>
 				<div class="form-group">
-					<label for="email">
+					<!--<label for="email">
 						Email address
-					</label>
-					<input type="email" class="form-control" [(ngModel)]="userModel.email" ngControl="email" #name="ngForm" />
+					</label>-->
+					<input type="email" placeholder="Email: " class="form-control" [(ngModel)]="userModel.email" ngControl="email" #name="ngForm" />
 				</div>
 				<div class="form-group">
-					<label for="mobile">
+					<!--<label for="mobile">
 						Mobile
-					</label>
-					<input type="mobile" class="form-control" [(ngModel)]="userModel.mobile" ngControl="mobile" #name="ngForm" />
+					</label>-->
+					<input type="mobile" placeholder="Mobile: " class="form-control" [(ngModel)]="userModel.mobile" ngControl="mobile" #name="ngForm" />
 				</div>
 				<div id="submitBtn" *ngIf="showPasswordFields">
 					<button type="submit" class="btn btn-default">Submit</button>

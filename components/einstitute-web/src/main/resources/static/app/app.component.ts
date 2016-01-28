@@ -15,17 +15,19 @@ import {Router} from "angular2/router";
 import {OrderComponent} from "./order/order.component";
 import {OrganisationComponent} from "./admin/core/manage/organisation.component";
 import {OrganisationMenuComponent} from "./admin/core/manage/organisation.component";
-
+import {LogoutComponent} from "./common/logout.component";
+import {HomeComponent} from "./common/home.component";
 
 @Component({
 	selector: 'ei-app',
 	templateUrl: 'app/app.view.html',
-    directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent, ActivityComponent]
+    directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent, ActivityComponent, UserRegistrationComponent]
 })
 @RouteConfig([
+    { path: '/logout', name: 'LogoutComponent', component: LogoutComponent },
     { path: '/menu', name: 'MenuComponent', component: MenuComponent },
-    { path: "/app/user/profile", name: "Profile", component: ProfileComponent, data:{'showPasswordFields':false}}},
-	{ path: '/activities/...', name: 'ActivitiesRoot', component: ActivityComponent },
+    { path: "/app/user/profile", name: "Profile", component: ProfileComponent, data: {showPasswordFields: false}},
+    { path: '/activities/...', name: 'ActivitiesRoot', component: ActivityComponent },
     { path: '/activities/menu', name: 'ActivitiesMenu', component: ActivityMainComponent },
     { path: '/orders/menu', name: 'OrdersMenu', component: OrderComponent },
     { path: '/organisations/...', name: 'OrganisationRoot', component: OrganisationComponent },
@@ -34,7 +36,13 @@ import {OrganisationMenuComponent} from "./admin/core/manage/organisation.compon
 export class App extends BaseComponent {
     user: User = new User();
 	constructor() {
-        if(sessionStorage.getItem("user.authenticated"))
-        this.user.authenticated = true;
+        console.log("Inside App");
+        if(sessionStorage.getItem("user.authenticated") == "true") {
+            console.log("Found Value")
+            this.user.authenticated = true;
+        }
+        else {
+            this.user.authenticated = false;
+        }
 	}
 }

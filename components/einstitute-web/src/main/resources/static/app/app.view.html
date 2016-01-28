@@ -1,3 +1,83 @@
+<div class="container-fluid" *ngIf="!user.authenticated">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-6" style="background-color:black;">
+					<nav class="navbar navbar-inverse">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">SmartClass...</a>
+							</div>
+							<div class="collapse navbar-collapse" id="myNavbar">
+								<!--<ul class="nav navbar-nav" *ngFor="#menuItem of resources.menuItems">
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{menuItem.category}}<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li class="active" *ngFor="#component of menuItem.components"><a [routerLink]="[component]">{{component}}</a></li>
+										</ul>
+									</li>
+								</ul>-->
+								<ul class="nav navbar-nav navbar-left">
+									<li><a href="#"><span class="glyphicon glyphicon-user"></span> About Us</a></li>
+									<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Contact Us</a></li>
+								</ul>
+							</div>
+					</nav>
+				</div>
+				<div class="col-md-6" style="background-color:lightgrey;">
+					<div align="right">
+						<login-comp [user]="user"></login-comp>
+					</div>
+					<div align="right">
+						<a>New User?</a>
+						<a>Forgot Password?</a>
+					</div>
+					<div align="right">
+						<p></p>
+						<button type="submit" class="btn btn-primary">Facebook Login</button>
+						<button type="submit" class="btn btn-info">Google Login</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6" style="background-color:lightblue;">
+					Acordion
+				</div>
+				<div class="col-md-6" style="background-color:whitesmoke;">
+					<h4>Signup Quickly...</h4>
+					<registration-comp></registration-comp>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" *ngIf="user.authenticated">
+	<div class="row" style="background-color:lightgrey;">
+		<div class="col-md-12 col-sm-12">
+			<menu-comp></menu-comp>
+		</div>
+	</div>
+</div>
+
+
+<!--<div *ngIf="!user.authenticated" class="row">
+	<div class="col-md-12 col-sm-12">
+		<login-comp [user]="user"></login-comp>
+	</div>
+</div>
+
+<div *ngIf="user.authenticated" class="row" style="background-color:lightgrey;">
+	<div class="col-md-12 col-sm-12">
+		<menu-comp></menu-comp>
+	</div>
+</div>-->
+
+<!--
 <div class="container-fluid" *ngIf="!user.authenticated" style="background-color:whitesmoke;">
 	<div class="row">
 		<div class="col-md-12 col-sm-12">
@@ -12,4 +92,4 @@
 			<menu-comp></menu-comp>
 		</div>
 	</div>
-</div>
+</div>-->

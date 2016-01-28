@@ -1,14 +1,12 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <a [routerLink]="['ActivitiesRoot', 'ListActivities']">My Activities</a>
-            <span></span>
-            <a [routerLink]="['ActivitiesRoot', 'CreateActivity']">New Activity</a>
-        </div>
+<div class="row">
+    <div class="col-md-12">
+        <a [routerLink]="['ActivitiesRoot', 'ListActivities']">My Activities</a>
+        <span></span>
+        <a [routerLink]="['ActivitiesRoot', 'CreateActivity']">New Activity</a>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <router-outlet></router-outlet>
-        </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <router-outlet></router-outlet>
     </div>
 </div>
