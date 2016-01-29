@@ -4,8 +4,7 @@ import {BaseComponent} from 'app/common/base.component';
 import {UserAuthenticationService} from 'app/user/user.service';
 import {MenuComponent} from 'app/common/menu.component';
 import {DashboardComponent} from 'app/common/dashboard.component';
-import {User} from "app/user/user.model";
-
+import {User} from "./profile/entity.model";
 
 @Component({
 	selector: 'login-comp',

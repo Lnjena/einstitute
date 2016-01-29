@@ -3,7 +3,6 @@ import {ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES, LocationStrategy, Hash
 import {BaseComponent} from 'app/common/base.component';
 import {MenuComponent} from 'app/common/menu.component';
 import {DashboardComponent} from 'app/common/dashboard.component';
-import {User} from 'app/user/user.model';
 import {LoginComponent} from 'app/user/login.component';
 import {WalletComponent} from 'app/user/wallet/wallet.component';
 import {LockerComponent} from 'app/user/locker/locker.component';
@@ -17,6 +16,8 @@ import {OrganisationComponent} from "./admin/core/manage/organisation.component"
 import {OrganisationMenuComponent} from "./admin/core/manage/organisation.component";
 import {LogoutComponent} from "./common/logout.component";
 import {HomeComponent} from "./common/home.component";
+import {METADATA} from "./metadata";
+import {User} from "./user/profile/entity.model";
 
 @Component({
 	selector: 'ei-app',
@@ -24,7 +25,7 @@ import {HomeComponent} from "./common/home.component";
     directives: [ROUTER_DIRECTIVES, LoginComponent, MenuComponent, ActivityComponent, UserRegistrationComponent]
 })
 @RouteConfig([
-    { path: '/logout', name: 'LogoutComponent', component: LogoutComponent },
+    { path: '/logout', name: 'LogoutComponent', component: LogoutComponent},
     { path: '/menu', name: 'MenuComponent', component: MenuComponent },
     { path: "/app/user/profile", name: "Profile", component: ProfileComponent, data: {showPasswordFields: false}},
     { path: '/activities/...', name: 'ActivitiesRoot', component: ActivityComponent },
@@ -36,13 +37,18 @@ import {HomeComponent} from "./common/home.component";
 export class App extends BaseComponent {
     user: User = new User();
 	constructor() {
-        console.log("Inside App");
         if(sessionStorage.getItem("user.authenticated") == "true") {
-            console.log("Found Value")
             this.user.authenticated = true;
         }
         else {
             this.user.authenticated = false;
         }
+        
+        this.viewMeta();
 	}
+
+    private viewMeta():void {
+        console.log("Root", METADATA.rootComponents);
+        console.log("Root", METADATA.auxilaryComponents);
+    }
 }

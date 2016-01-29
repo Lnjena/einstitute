@@ -1,0 +1,25 @@
+<!--<form class="form-signin" (ngSubmit)="authenticate(user)">
+    <input type="text" class="form-control" placeholder="Email" required autofocus [(ngModel)]="user.userId">
+    <input type="password" class="form-control" placeholder="Password" required  [(ngModel)]="user.password">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <label class="checkbox pull-left">
+        <input type="checkbox" value="remember-me">
+        Remember me
+    </label>
+    <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+</form>
+<a href="#" class="text-center new-account">Create an account </a>-->
+
+<form id="signin" class="navbar-form navbar-right" role="form" (ngSubmit)="authenticate(user)">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address" [(ngModel)]="user.userId">
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password" [(ngModel)]="user.password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

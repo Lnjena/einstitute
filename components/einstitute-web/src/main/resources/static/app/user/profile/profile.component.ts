@@ -42,6 +42,7 @@ export class ProfileComponent extends BaseComponent {
 		if(obs!=null){
 			obs.subscribe(res => {
 				this.model = res.json();
+				console.log(this.address.countryId);
 				console.log(this.model);
 				this.address = this.model.addresses[0];
 				this.academics=this.model.academics;

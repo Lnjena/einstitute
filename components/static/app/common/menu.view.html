@@ -1,0 +1,60 @@
+<!--<div class="container-fluid">
+	<div class="row">
+            <div class="col-md-9 col-sm-12">
+                <div class="page-header">
+                    <h1>
+                        Minerva <small>HEF...</small>
+                    </h1>
+                    <div class="col-md-3 col-sm-3" style="background-color:lightgoldenrodyellow; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div *ngFor="#menuItem of resources.menuItems">
+                            <div>{{menuItem.category}}</div>
+                            <div *ngFor="#component of menuItem.components">
+                                <a [routerLink]="[component]">{{component}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-9" style="background-color:whitesmoke; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <router-outlet></router-outlet>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">SmartClass...</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav" *ngFor="#menuItem of resources.menuItems">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{menuItem.category}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="active" *ngFor="#component of menuItem.components"><a [routerLink]="[component]">{{component}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a [routerLink]="['LogoutComponent']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="col-md-6 col-sm-9" style="background-color:ghostwhite; box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);">
+    <router-outlet></router-outlet>
+</div>
+
+<script>
+    $('.nav a').on('click', function(){
+        //$('.btn-navbar').click(); //bootstrap 2.x
+        $('.navbar-toggle').click() //bootstrap 3.x by Richard
+    });
+</script>

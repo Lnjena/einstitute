@@ -4,8 +4,12 @@ import {Entity} from "app/user/profile/entity.model";
 export enum Relation{FATHER, MOTHER, GUARDIAN};
 export enum Type {PHONE, MOBILE, EMAIL, FAX, FACEBOOK, TWITTER};
 export enum AddressType {HOME = "HOME", RESIDENTIAL = "RESIDENTIAL", BUSINESS = "BUSINESS", PERMANENT = "PERMANENT", RENTED = "RENTED", OFFICE = "OFFICE"};
-//export enum Religion {HINDU, MUSLIM, CHRISTIAN, BDHISM, SIKH, JAIN, JEWS, PARSI};
-//export enum Caste {GENERAL, SC, ST, OBC};
+
+export class Country{
+}
+
+export class Nationality{
+}
 
 export class Religion {
 	constructor(
@@ -21,19 +25,47 @@ export class Caste {
 	){}
 }
 
-export class Entity{
-	public userId: String;
-	public entityType: String; 
-	public orgCode: String;
+export class EntityProfile {
+	profileId: string;
 	public extraPersonalDetails: ExtraPersonalDetails;
 	public guarantors:Guarantor[];
 	public addresses:Address[];
 	public contacts: Contact[];
 	public academics: Academic[];
-	public identities:Identity[];
-	public organisation:Organisation; 
+	public identities: Identity[];
+	firstName: string;
+	middleName: string = "";
+	lastName: string;
+	birthDate: Date;
+	email: Contact;
+	mobile: Contact;
+
+	public getFullName(){
+		this.firstName + ' ' + this.middleName + ' ' + this.lastName;
+	}
+}
+
+export class User {
+	userId: string;
+	password: string;
+	entityId: string;
+	entity: Entity;
+	assignableEntities: Array<string>;
+	tempAuthCode: string;
+	authenticated: boolean = false;
+}
+
+
+export class Entity {
+	public entityId: string;
+	public orgCode: string;
+	profileId: string;
+	profile: EntityProfile;
+	public entityType: string;
+	active: Boolean;
+	public organisation: Organisation;
+	public role: Role;
 	constructor(){
-		this.extraPersonalDetails = new ExtraPersonalDetails();
 		this.organisation=new Organisation();
 		this.addresses=[];
 		this.identities=[];
@@ -60,7 +92,7 @@ export class EntityGroup {
 	}
 }
 
-export class Identity{
+export class Identity {
 	public id: String;
 	public idType: String;
 	public personName: String;
@@ -71,7 +103,7 @@ export class Identity{
 	constructor() {}
 }
 
-export class Address{
+export class Address {
 	public type: AddressType;
 	public line1: String;
 	public line2: String;
@@ -88,7 +120,7 @@ export class Address{
 	}
 }
 
-export class Contact{
+export class Contact {
 	public type: Type;
 	public category: String;
 	public details: String;
@@ -96,7 +128,7 @@ export class Contact{
 	constructor() {}
 }
 
-export class ExtraPersonalDetails{
+export class ExtraPersonalDetails {
 	public birthPlace: String;
 	public religion:Religion;
 	public caste:Caste;
@@ -129,21 +161,38 @@ export class Organisation {
 }
 
 export class Academic {
-	public qualification:String;
-	public institute: String;
-	public grade: String;
-	public year: Number;
+	public qualification: string;
+	public institute: string;
+	public grade: string;
+	public yearOfCompletion: Date;
 	constructor() {}
 }
 
-export class Country{
+export class Role {
+	roleId: string;
+	description: string;
+	active: Boolean;
+	permissions: Array<Permission>;
+	resources: ResourceGroup;
 }
 
-export class Religion{
+export class ResourceGroup {
+	constructor(
+		menuItems: MenuItem[]
+	) {}
 }
 
-export class Caste{
+export class MenuItem {
+	constructor(
+		components: Array<String>,
+		category: String
+	) {}
 }
 
-export class Nationality{
+export class Permission {
+	constructor(
+		elementId: string,
+		grantedPermission: string,
+		allowedPermissions?: Array<string>
+	) {}
 }
