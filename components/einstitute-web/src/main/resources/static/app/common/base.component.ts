@@ -1,3 +1,5 @@
 export class BaseComponent<M> {
-	getModel<M>(): M;
+	public get model(): M {
+		return null;
+	}
 }

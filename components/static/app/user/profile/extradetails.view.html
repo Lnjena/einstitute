@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form (ngSubmit)="onSubmit()" #extraDetailsForm="ngForm">
+				<div class="form-group">
+		        	<label for="city">Nationality</label>
+		        	<input type="text" class="form-control" [(ngModel)]="extraDetailsModel.nationality" ngControl="nationality" #name="ngForm" >
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="type">Birth place</label>
+		        	<input type="text" class="form-control" [(ngModel)]="extraDetailsModel.birthPlace" ngControl="birthPlace" #name="ngForm" >
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="line1">Religion</label>
+		        	<input type="text" class="form-control" [(ngModel)]="extraDetailsModel.religion" ngControl="religion" #name="ngForm" >
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="lin2">Caste</label>
+		        	<input type="text" class="form-control" [(ngModel)]="extraDetailsModel.caste" ngControl="caste" #name="ngForm" >
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="line3">Sub Caste</label>
+		        	<input type="text" class="form-control" [(ngModel)]="extraDetailsModel.subCaste" ngControl="subCaste"  #name="ngForm" >
+		      	</div>
+	      	
+			</form>
+		</div>
+	</div>
+</div>

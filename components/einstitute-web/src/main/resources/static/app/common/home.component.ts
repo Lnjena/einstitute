@@ -1,6 +1,6 @@
 
 import {Component} from "angular2/core";
-import {User} from "../user/user.model";
+import {User} from "../user/profile/entity.model";
 
 @Component({
     templateUrl: 'app/app.view.html'

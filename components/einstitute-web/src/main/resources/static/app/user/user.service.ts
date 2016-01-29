@@ -1,8 +1,8 @@
 import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Injectable} from 'angular2/core';
-import {User} from 'app/user/user.model';
-import {Resource} from 'app/common/menu.model';
 import	'rxjs/Rx';
+import {User} from "./profile/entity.model";
+import {ResourceGroup} from "./profile/entity.model";
 
 
 
@@ -34,7 +34,7 @@ export class UserAuthenticationService {
 
 export class UserPermissionService {
 
-	resources: Resource = {
+	resources: ResourceGroup = {
 		user: {
 			userId: "I1001"
 		},
@@ -64,7 +64,7 @@ export class UserPermissionService {
 		]
 	}
 
-	public getUserPermissions(user: User): Resource {
+	public getUserPermissions(user: User): ResourceGroup {
 		return this.resources;
 	}
 }

@@ -3,9 +3,9 @@ import {Http, Response, Headers, HTTP_PROVIDERS} from 'angular2/http';
 import {Component, Input} from 'angular2/core';
 import {BaseComponent} from 'app/common/base.component';
 import {NgForm} from 'angular2/common';
-import {User} from 'app/user/user.model';
 import {RouteData} from 'angular2/router';
 import {UserService} from 'app/user/user.service';
+import {User} from "./profile/entity.model";
 
 @Component({
 	selector:'registration-comp',

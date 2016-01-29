@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="#_org of _orgsList">
+        <a [routerLink]="['NewOrganisation', {id: _org.orgCode}]">{{ _org.name }}</a>
+    </li>
+</ul>

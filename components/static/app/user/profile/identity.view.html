@@ -1,0 +1,68 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form (ngSubmit)="addItem()" #identityForm="ngForm">
+		      	<div class="form-group">
+		        	<label for="type">Document Type</label>
+		        	<input type="text" class="form-control" required [(ngModel)]="identityModel.idType" ngControl="idType" #name="ngForm" />
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="type">Document Number</label>
+		        	<input type="text" class="form-control" required [(ngModel)]="identityModel.id" ngControl="docId" #name="ngForm" />
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="line1">Issuing Authority</label>
+		        	<input type="text" class="form-control" required [(ngModel)]="identityModel.issueAuthority" ngControl="issueAuthority" #name="ngForm" />
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="lin2">Issue Date</label>
+		        	<input type="text" class="form-control" [(ngModel)]="identityModel.issueDate" ngControl="issueDate" #name="ngForm" />
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="line3">Expiry Date</label>
+		        	<input type="text" class="form-control" [(ngModel)]="identityModel.expiryDate" ngControl="expiryDate"  #name="ngForm" />
+		      	</div>
+		      	<div class="form-group">
+		        	<label for="city">File input</label>
+		        	<input id="uploadDocument" type="file" ngControl="uploadDocument"/>
+		      	</div>
+		      	<div class="form-group">
+		        	<button type="submit" class="btn btn-default" >Add Details</button> 
+		      	</div>
+			</form>
+			<table class="table" *ngIf="identityDocs.length > 0">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Document Type</th>
+						<th>Document Id</th>
+						<th>Expiry Date</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="#identity of identityDocs">
+						<td>
+							
+						</td>
+						<td>
+							{{identity.idType}}
+						</td>
+						<td>
+							{{identity.id}}
+						</td>
+						<td>
+							{{identity.expiryDate}}
+						</td>
+						<td>
+							Delete
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+

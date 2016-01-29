@@ -4,8 +4,8 @@ import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {BaseComponent} from 'app/common/base.component';
 import {DashboardComponent} from 'app/common/dashboard.component';
 import {UserPermissionService} from 'app/user/user.service';
-import {Resource} from 'app/common/menu.model';
-import {User} from "../user/user.model";
+import {ResourceGroup} from "../user/profile/entity.model";
+import {User} from "../user/profile/entity.model";
 
 @Component({
 	selector: 'menu-comp',
@@ -14,9 +14,9 @@ import {User} from "../user/user.model";
 	providers: [UserPermissionService]
 })
 export class MenuComponent extends BaseComponent {
-	resources: Resource;
+	resources: ResourceGroup;
 	
 	constructor(userPermissionService: UserPermissionService) {
-		this.resources = <Resource>userPermissionService.getUserPermissions(new User());
+		this.resources = <ResourceGroup>userPermissionService.getUserPermissions(new User());
 	}
 }
