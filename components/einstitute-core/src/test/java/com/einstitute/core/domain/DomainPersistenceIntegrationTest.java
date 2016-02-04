@@ -239,9 +239,9 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		
 		//Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657");
 		//Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null, null, null);
-		Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null,"Ln", "Jena");
+		/*Entity ent = new Entity("in.del.del.north.dps5657.2015.cls1.S1001", "STUDENT", "in.del.del.north.dps5657", null,"Ln", "Jena");
 		
-		entityRepository.save(ent);
+		entityRepository.save(ent);*/
 	}
 	
 	//@Test
@@ -339,8 +339,8 @@ public class DomainPersistenceIntegrationTest extends AbstractTestNGSpringContex
 		addresses.add(address);
 		contacts.add(contact);
 		ContactDetails contactDetails = new ContactDetails(addresses, contacts);
-		Entity entity = new Entity("in.del.del.north.dps5657.2015.cls1.S1005","STUDENT","in.del.del.north.dps5657",contactDetails,"Arvind","Kumar");
-		entityRepository.insert(entity);
+		/*Entity entity = new Entity("in.del.del.north.dps5657.2015.cls1.S1005","STUDENT","in.del.del.north.dps5657",contactDetails,"Arvind","Kumar");
+		entityRepository.insert(entity);*/
 	}
 	
 	//@Test

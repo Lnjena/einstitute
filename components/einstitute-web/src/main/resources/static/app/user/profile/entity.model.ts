@@ -25,50 +25,57 @@ export class Caste {
 	){}
 }
 
+export class User {
+	public userId: string;
+	public password: string;
+	public confirmPassword: string;
+	public entityId: string;
+	public entity: Entity;
+	public assignableEntities: Array<string>;
+	public tempAuthCode: string;
+	public authenticated: boolean = false;
+	constructor(){
+		this.entity=new Entity();
+	}
+}
+
+export class Entity {
+	public entityId: string;
+	public orgCode: string;
+	public profileId: string;
+	public profile: EntityProfile;
+	public entityType: string;
+	public active: Boolean;
+	public organisation: Organisation;
+	public role: Role;
+	constructor(){
+		this.profile=new EntityProfile();
+		this.organization=new Organisation();		
+	}
+}
+
 export class EntityProfile {
-	profileId: string;
+	public profileId: string;
 	public extraPersonalDetails: ExtraPersonalDetails;
 	public guarantors:Guarantor[];
 	public addresses:Address[];
 	public contacts: Contact[];
 	public academics: Academic[];
 	public identities: Identity[];
-	firstName: string;
-	middleName: string = "";
-	lastName: string;
-	birthDate: Date;
-	email: Contact;
-	mobile: Contact;
-
-	public getFullName(){
-		this.firstName + ' ' + this.middleName + ' ' + this.lastName;
-	}
-}
-
-export class User {
-	userId: string;
-	password: string;
-	entityId: string;
-	entity: Entity;
-	assignableEntities: Array<string>;
-	tempAuthCode: string;
-	authenticated: boolean = false;
-}
-
-
-export class Entity {
-	public entityId: string;
-	public orgCode: string;
-	profileId: string;
-	profile: EntityProfile;
-	public entityType: string;
-	active: Boolean;
-	public organisation: Organisation;
-	public role: Role;
+	public firstName: string;
+	public middleName: string = "";
+	public lastName: string;
+	public birthDate: Date;
 	constructor(){
-		this.organisation=new Organisation();
+		this.extraPersonalDetails=new ExtraPersonalDetails();
+		this.guarantors=[];
 		this.addresses=[];
+		this.academics=[];
 		this.identities=[];
+		this.contacts=[new Contact(),new Contact(),new Contact()]
+	}
+	get fullName(): string {
+		this.firstName + ' ' + this.middleName + ' ' + this.lastName;
 	}
 }
 

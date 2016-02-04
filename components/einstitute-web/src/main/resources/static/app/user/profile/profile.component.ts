@@ -37,7 +37,7 @@ export class ProfileComponent extends BaseComponent {
 		this.identityDocs=[];
 		this.academicHistory=[];
 		
-		obs = this.profileService.getEntity(sessionStorage.getItem("user.userId"));
+		/*obs = this.profileService.getEntity(sessionStorage.getItem("user.userId"));
 		//console.log(obs);
 		if(obs!=null){
 			obs.subscribe(res => {
@@ -49,7 +49,7 @@ export class ProfileComponent extends BaseComponent {
 				this.identities=this.model.identities;
 				this.extraPersonalDetails=this.model.extraPersonalDetails;
 		    });
-		}
+		}*/
 	}
 	
 	onSubmit() {

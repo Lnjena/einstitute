@@ -1,7 +1,7 @@
 package com.einstitute.core.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,33 +18,23 @@ public class User implements Serializable {
 	@Field
 	private String password;
 	@Field
-	private String firstName;
+	private String entityId;
 	@Field
-	private String middlename;
+	private Entity entity;
 	@Field
-	private String lastName;
+	private List<String> assignableEntities;
 	@Field
-	private Date birthDate;
-	@Field
-	private String email;
-	@Field
-	private String mobile;
+	private String tempAuthCode;
 
 	public User() {
 	}
 
-	public User(String userId, String password, String firstName,
-			String middlename, String lastName, Date birthDate, String email,
-			String mobile) {
+	public User(String userId, String password, String entityId, Entity entity) {
 
 		this.userId = userId;
 		this.password = password;
-		this.firstName = firstName;
-		this.middlename = middlename;
-		this.lastName = lastName;
-		this.birthDate = birthDate;
-		this.email = email;
-		this.mobile = mobile;
+		this.entityId = entityId;
+		this.entity = entity;
 	}
 
 	public String getUserId() {
@@ -55,27 +45,19 @@ public class User implements Serializable {
 		return password;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getEntityId() {
+		return entityId;
 	}
 
-	public String getMiddlename() {
-		return middlename;
+	public Entity getEntity() {
+		return entity;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public List<String> getAssignableEntities() {
+		return assignableEntities;
 	}
 
-	public Date getBirthDate() {
-		return birthDate;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getMobile() {
-		return mobile;
+	public String getTempAuthCode() {
+		return tempAuthCode;
 	}
 }

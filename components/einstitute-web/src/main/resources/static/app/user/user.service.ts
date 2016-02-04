@@ -80,7 +80,15 @@ export class UserService{
 	}
 
 	createUser(userForm:User){
-		console.log(JSON.stringify(userForm));
+		this.http.post('/einstitute/entityProfiles', JSON.stringify(userForm.entity.profile,this.replacer),{headers:headers})
+	    .map(res => res.json()).subscribe(
+	    	      () => console.log('Profile save'));
+		
+		console.log("after save ================== ",userForm.entity.profile.profileId);
+		this.http.post('/einstitute/entities', JSON.stringify(userForm.entity),{headers:headers})
+	    .map(res => res.json()).subscribe(
+	    	      () => console.log('Entity save'));
+		
 		var headers = new Headers();
 	    headers.append('Content-Type', 'application/json');
 	    this.http.post('/einstitute/users', JSON.stringify(userForm),{headers:headers})
@@ -92,6 +100,13 @@ export class UserService{
 	
 	getUser(userId:string){
 		return this.http.get('/einstitute/users/'+userId);
+	}
+	
+	replacer(key:string, value:string){
+		if(key=='allCountries'){
+			return undefined
+		}
+		return value;
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.einstitute.core.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -10,92 +9,76 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection="entity")
+@Document(collection = "entity")
 public class Entity implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6048909041066151311L;
 
 	@NotNull
 	@Id
 	@Field("_id")
-	private String userId;	
-	
+	private String entityId;
+
+	@Field
+	private String orgCode;
+
+	@Field
+	private String profileId;
+
+	@Field
+	private EntityProfile profile;
+
 	@NotNull
 	@Field
 	private String entityType;
-	
-	@NotNull
-	@DBRef(lazy=true)
-	private Organisation organisation;
-	
-	@DBRef(lazy=true)
-	private List<Guarantor> guarantors;
-	
-	@NotNull
-	@Field
-	private ExtraPersonalDetails extraPersonalDetails;
-	
-	@Field
-	private List<Address> addresses;
-	
-	private List<AcademicDetail> academics;
-	
-	private List<Identity> identities;
-	
-	@DBRef(lazy=true)
-	private Wallet wallet;
-	
-	public Entity() {}
 
-	public Entity(String userId, String entityType, String orgCode,ContactDetails contactDetails,
-			String firstName, String lastName) {
+	@Field
+	private Boolean active;
+
+	@NotNull
+	@DBRef(lazy = true)
+	private Organisation organisation;
+
+	public Entity() {
+	}
+
+	public Entity(String entityId, String orgCode, String profileId,
+			EntityProfile profile, String entityType, Boolean active) {
 		super();
-		this.userId = userId;
+		this.entityId = entityId;
+		this.orgCode = orgCode;
+		this.profileId = profileId;
+		this.profile = profile;
 		this.entityType = entityType;
-		this.organisation = new Organisation(orgCode);
+		this.active = active;
 	}
-	
-	public Entity(String userId) {
-		this.userId=userId;
+
+	public String getEntityId() {
+		return entityId;
 	}
-	
-	public String getUserId() {
-		return userId;
+
+	public String getOrgCode() {
+		return orgCode;
+	}
+
+	public String getProfileId() {
+		return profileId;
+	}
+
+	public EntityProfile getProfile() {
+		return profile;
 	}
 
 	public String getEntityType() {
 		return entityType;
 	}
 
+	public Boolean getActive() {
+		return active;
+	}
+
 	public Organisation getOrganisation() {
 		return organisation;
-	}
-
-	public List<Guarantor> getGuarantors() {
-		return guarantors;
-	}
-
-	public ExtraPersonalDetails getExtraPersonalDetails() {
-		return extraPersonalDetails;
-	}
-
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	public List<AcademicDetail> getAcademics() {
-		return academics;
-	}
-
-	public List<Identity> getIdentities() {
-		return identities;
-	}
-
-	public Wallet getWallet() {
-		return wallet;
 	}
 
 }

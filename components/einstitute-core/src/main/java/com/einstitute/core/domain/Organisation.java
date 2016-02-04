@@ -38,7 +38,7 @@ public class Organisation implements Serializable {
 	public Organisation(String _id, String name, String ownerEntId, String parentOrgCode) {
 		this._id = _id;
 		this.name = name;
-		this.owner = new Entity(_id);
+		//this.owner = new Entity(_id);
 		this.parentOrgCode = parentOrgCode;
 		this.active = true;
 	}
